@@ -138,5 +138,6 @@ class Estudiante extends Entidad
 		$this->colegioEstudiante			= $metodo('colegioEstudiante');
 		$this->situacionEstudiante			= $metodo('situacionEstudiante');
 		$this->tycEstudiante			= $metodo('tycEstudiante');
+		$this->tycEstudiante			= $metodo('sexoEstudiante');
 	}
 }

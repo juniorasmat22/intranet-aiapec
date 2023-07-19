@@ -3555,10 +3555,10 @@ fieldset:disabled .btn {
 .btn-check:focus+.btn-guinda,
 .btn-guinda:focus {
     color: #fff;
-    background-color: #6169d0;
-    border-color: #5b63c4;
-    -webkit-box-shadow: 0 0 0 .2rem rgba(135, 144, 247, .5);
-    box-shadow: 0 0 0 .2rem rgba(135, 144, 247, .5)
+    background-color: #631410;
+    border-color: #631410;
+    -webkit-box-shadow: 0 0 0 .2rem rgba(245, 173, 87, .5);
+    box-shadow: 0 0 0 .2rem rgba(245, 173, 87, .5)
 }
 
 .btn-primary {
@@ -4850,7 +4850,7 @@ fieldset:disabled .btn {
 
 .nav-link:focus,
 .nav-link:hover {
-    color: #6169d0
+    color: #631410
 }
 
 .nav-link.disabled {
@@ -4905,7 +4905,7 @@ fieldset:disabled .btn {
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
     color: #fff;
-    background-color: #727cf5
+    background-color: #F5AD4D
 }
 
 .nav-fill .nav-item,

@@ -24,8 +24,8 @@ class EstudianteControlador extends Controlador
 		
 		$this->entidad->numerodocumentoEstudiante=$_SESSION['useranem'];
 		$estudiante = $this->modelo->get($this->entidad);
-		
-		require_once 'vistas/estudiante/actualizar.php';
+		$vista=$this->vista='vistas/estudiante/actualizar.php';
+		require 'vistas/plantilla/index.php';
 	}
 	public function registrar()
 	{

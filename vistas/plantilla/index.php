@@ -592,10 +592,12 @@
   <!-- demo app -->
   <script src="recursos/assets/js/pages/demo.dashboard-analytics.js"></script>
   <!-- end demo js-->
-
-  <!-- demo wizard -->
-  <script src="recursos/assets/js/pages/demo.form-wizard.js"></script>
-  <!-- end demo wizard js-->
+  <?php
+  $var = isset($_GET['c']) ? $_GET['c'] : '';
+if($var=='estudiante'){
+  echo '<script src="recursos/js/updated/updated.js"></script>';
+}
+?>
 
 </body>
 
