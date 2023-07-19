@@ -69,9 +69,9 @@ BEGIN
   -- Consulta login
   if opcion = 6 then
   
-    select tu.*,te.nombres_estudiante  from tbl_usuario tu 
-    inner join tbl_estudiante te ON te.numerodocumento_estudiante = tu.nombre_usuario 
-    where tu.nombre_usuario = nombreUsuario;
+    select tu.*,te.nombres_estudiante,te.datos_update from tbl_usuario tu 
+  inner join tbl_estudiante te ON te.numerodocumento_estudiante = tu.nombre_usuario 
+  where tu.nombre_usuario  = nombreUsuario;
   end if;
 END $$
 DELIMITER ;

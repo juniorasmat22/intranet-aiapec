@@ -10,9 +10,9 @@
   <!-- App favicon -->
   <link rel="shortcut icon" href="recursos/img/letra_color.png">
   <!-- para el dashboard -->
-    <!-- third party css -->
-    <link href="recursos/assets/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css">
-        <!-- third party css end -->
+  <!-- third party css -->
+  <link href="recursos/assets/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css">
+  <!-- third party css end -->
   <!-- App css -->
   <link href="recursos/assets/css/icons.min.css" rel="stylesheet" type="text/css">
   <link href="recursos/assets/css/app.min.css" rel="stylesheet" type="text/css" id="light-style">
@@ -51,110 +51,99 @@
         <!--- Sidemenu -->
         <ul class="side-nav">
 
-          <li class="side-nav-title side-nav-item">Navigation</li>
+          <?php if ($_SESSION['update'] == 0) { ?>
+            <li class="side-nav-title side-nav-item">Bienvenido</li>
 
-          <li class="side-nav-item">
-            <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
-              <i class="uil-home-alt"></i>
-              <span class="badge bg-success float-end">4</span>
-              <span> Dashboards </span>
+            <li class="side-nav-item">
+              <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+                <i class="uil-home-alt"></i>
+                <span class="badge bg-success float-end">1</span>
+                <span> Mi perfil </span>
+              </a>
+              <div class="collapse" id="sidebarDashboards">
+                <ul class="side-nav-second-level">
+                  <li>
+                    <a href="?c=estudiante&a=updated">Actualizar datos</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          <?php } else { ?>
+            <li class="side-nav-title side-nav-item">Opciones</li>
+
+            <li class="side-nav-item">
+              <a href="apps-calendar.html" class="side-nav-link">
+                <i class="uil-calender"></i>
+                <span> Matrícula </span>
+              </a>
+            </li>
+
+            <li class="side-nav-item">
+              <a href="apps-chat.html" class="side-nav-link">
+                <i class="uil-comments-alt"></i>
+                <span> Seminarios </span>
+              </a>
+            </li>
+
+            <li class="side-nav-item">
+              <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
+                <i class="uil-store"></i>
+                <span> Notas </span>
+                <span class="menu-arrow"></span>
+              </a>
+              <div class="collapse" id="sidebarEcommerce">
+                <ul class="side-nav-second-level">
+                  <li>
+                    <a href="apps-ecommerce-products.html">Simulacros</a>
+                  </li>
+                  <li>
+                    <a href="apps-ecommerce-products-details.html">Semanales</a>
+                  </li>
+                  <li>
+                    <a href="apps-ecommerce-orders.html">Diarios</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="side-nav-item">
+              <a href="apps-social-feed.html" class="side-nav-link">
+                <i class="uil-rss"></i>
+                <span> Asistencia </span>
+              </a>
+            </li>
+            <li class="side-nav-item">
+              <a data-bs-toggle="collapse" href="#sidebarEmail" aria-expanded="false" aria-controls="sidebarEmail" class="side-nav-link">
+                <i class="uil-envelope"></i>
+                <span> Biblioteca </span>
+                <span class="menu-arrow"></span>
+              </a>
+              <div class="collapse" id="sidebarEmail">
+                <ul class="side-nav-second-level">
+                  <li>
+                    <a href="apps-email-inbox.html">Cursos</a>
+                  </li>
+                  <li>
+                    <a href="apps-email-read.html">Libros</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+          <?php  }
+          ?>
+          <!-- Help Box -->
+          <div class="help-box text-white text-center">
+            <a href="javascript: void(0);" class="float-end close-btn text-white">
+              <i class="mdi mdi-close"></i>
             </a>
-            <div class="collapse" id="sidebarDashboards">
-              <ul class="side-nav-second-level">
-                <li>
-                  <a href="dashboard-analytics.html">Analytics</a>
-                </li>
-                <li>
-                  <a href="dashboard-crm.html">CRM</a>
-                </li>
-                <li>
-                  <a href="index.html">Ecommerce</a>
-                </li>
-                <li>
-                  <a href="dashboard-projects.html">Projects</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-
-          <li class="side-nav-title side-nav-item">Opciones</li>
-
-          <li class="side-nav-item">
-            <a href="apps-calendar.html" class="side-nav-link">
-              <i class="uil-calender"></i>
-              <span> Matrícula </span>
-            </a>
-          </li>
-
-          <li class="side-nav-item">
-            <a href="apps-chat.html" class="side-nav-link">
-              <i class="uil-comments-alt"></i>
-              <span> Seminarios </span>
-            </a>
-          </li>
-
-          <li class="side-nav-item">
-            <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
-              <i class="uil-store"></i>
-              <span> Notas </span>
-              <span class="menu-arrow"></span>
-            </a>
-            <div class="collapse" id="sidebarEcommerce">
-              <ul class="side-nav-second-level">
-                <li>
-                  <a href="apps-ecommerce-products.html">Simulacros</a>
-                </li>
-                <li>
-                  <a href="apps-ecommerce-products-details.html">Semanales</a>
-                </li>
-                <li>
-                  <a href="apps-ecommerce-orders.html">Diarios</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="side-nav-item">
-            <a href="apps-social-feed.html" class="side-nav-link">
-              <i class="uil-rss"></i>
-              <span> Asistencia </span>
-            </a>
-          </li>
-          <li class="side-nav-item">
-            <a data-bs-toggle="collapse" href="#sidebarEmail" aria-expanded="false" aria-controls="sidebarEmail" class="side-nav-link">
-              <i class="uil-envelope"></i>
-              <span> Biblioteca </span>
-              <span class="menu-arrow"></span>
-            </a>
-            <div class="collapse" id="sidebarEmail">
-              <ul class="side-nav-second-level">
-                <li>
-                  <a href="apps-email-inbox.html">Cursos</a>
-                </li>
-                <li>
-                  <a href="apps-email-read.html">Libros</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-
-      
-
-          
-
-
-        <!-- Help Box -->
-        <div class="help-box text-white text-center">
-          <a href="javascript: void(0);" class="float-end close-btn text-white">
-            <i class="mdi mdi-close"></i>
-          </a>
-          <img src="recursos/assets/images/help-icon.svg" height="90" alt="Helper Icon Image">
-          <h5 class="mt-3">Unlimited Access</h5>
-          <p class="mb-3">Upgrade to plan to get access to unlimited reports</p>
-          <a href="javascript: void(0);" class="btn btn-outline-light btn-sm">Upgrade</a>
-        </div>
-        <!-- end Help Box -->
-        <!-- End Sidebar -->
-
+            <img src="recursos/assets/images/help-icon.svg" height="90" alt="Helper Icon Image">
+            <h5 class="mt-3">Unlimited Access</h5>
+            <p class="mb-3">Upgrade to plan to get access to unlimited reports</p>
+            <a href="javascript: void(0);" class="btn btn-outline-light btn-sm">Upgrade</a>
+          </div>
+          <!-- end Help Box -->
+          <!-- End Sidebar -->
+        </ul>
         <div class="clearfix"></div>
 
       </div>
@@ -178,11 +167,11 @@
               </a>
               <div class="dropdown-menu dropdown-menu-animated dropdown-lg p-0">
                 <form class="p-3">
-                  <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                  <input type="text" class="form-control" placeholder="Buscar ..." aria-label="Recipient's username">
                 </form>
               </div>
             </li>
-            
+
 
             <li class="dropdown notification-list">
               <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
@@ -340,7 +329,7 @@
                   <img src="recursos/img/user/usuario.png" alt="user-image" class="rounded-circle">
                 </span>
                 <span>
-                  <span class="account-user-name"><?php echo $_SESSION['name'];?></span>
+                  <span class="account-user-name"><?php echo $_SESSION['name']; ?></span>
                   <span class="account-position">Aiapaec</span>
                 </span>
               </a>
@@ -455,24 +444,11 @@
         <!-- Start Content-->
         <div class="container-fluid">
 
-          <!-- start page title -->
-          <div class="row">
-            <div class="col-12">
-              <div class="page-title-box">
-                <div class="page-title-right">
-                  <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">Hyper</a></li>
-                    <li class="breadcrumb-item"><a href="javascript: void(0);">Pages</a></li>
-                    <li class="breadcrumb-item active">Starter</li>
-                  </ol>
-                </div>
-                <h4 class="page-title">Starter</h4>
-              </div>
-            </div>
-          </div>
+
+          <?php require $vista; ?>
           <!-- end page title -->
         </div> <!-- container -->
-        <?php require $vista; ?>
+
 
       </div> <!-- content -->
 
@@ -606,16 +582,20 @@
   <script src="recursos/assets/js/app.min.js"></script>
 
   <!-- para el dashboard -->
-   <!-- third party js -->
-        <!-- <script src="assets/js/vendor/Chart.bundle.min.js"></script> -->
-        <script src="recursos/assets/js/vendor/apexcharts.min.js"></script>
-        <script src="recursos/assets/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
-        <script src="recursos/assets/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
-        <!-- third party js ends -->
+  <!-- third party js -->
+  <!-- <script src="assets/js/vendor/Chart.bundle.min.js"></script> -->
+  <script src="recursos/assets/js/vendor/apexcharts.min.js"></script>
+  <script src="recursos/assets/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
+  <script src="recursos/assets/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+  <!-- third party js ends -->
 
-        <!-- demo app -->
-        <script src="recursos/assets/js/pages/demo.dashboard-analytics.js"></script>
-        <!-- end demo js-->
+  <!-- demo app -->
+  <script src="recursos/assets/js/pages/demo.dashboard-analytics.js"></script>
+  <!-- end demo js-->
+
+  <!-- demo wizard -->
+  <script src="recursos/assets/js/pages/demo.form-wizard.js"></script>
+  <!-- end demo wizard js-->
 
 </body>
 

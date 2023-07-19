@@ -23,7 +23,7 @@ class Usuario extends Entidad
 		$this->estadoUsuario = $this->obtenerColumna($filaConsulta, 'estado_usuario');
 		$this->fechaRegistroUsario = $this->obtenerColumna($filaConsulta, 'fecha_registro_usuario');
 		$this->nombresEstudiante = $this->obtenerColumna($filaConsulta, 'nombres_estudiante');
-		$this->datosUpdated = $this->obtenerColumna($filaConsulta, 'nombres_estudiante');
+		$this->datosUpdated = $this->obtenerColumna($filaConsulta, 'datos_update');
 	}
 	public function bindValues($statement)
 	{

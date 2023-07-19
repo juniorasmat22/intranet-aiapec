@@ -2,9 +2,8 @@
 
 namespace controladores;
 
-use entidades\Usuario;
 
-class RegistroControlador extends Controlador
+class EstudianteControlador extends Controlador
 {
 
 	public function __construct()
@@ -20,10 +19,13 @@ class RegistroControlador extends Controlador
 	{
 		require 'vistas/plantilla/404.php';
 	}
-	public function registro()
+	public function updated()
 	{
 		
-		require_once 'vistas/usuario/registro.php';
+		$this->entidad->numerodocumentoEstudiante=$_SESSION['useranem'];
+		$estudiante = $this->modelo->get($this->entidad);
+		
+		require_once 'vistas/estudiante/actualizar.php';
 	}
 	public function registrar()
 	{
