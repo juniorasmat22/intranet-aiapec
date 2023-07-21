@@ -27,7 +27,7 @@
     <div class="leftside-menu">
 
       <!-- LOGO -->
-      <a href="index.html" class="logo text-center logo-light">
+      <a href="?" class="logo text-center logo-light">
         <span class="logo-lg">
           <img src="recursos/img/3.png" alt="" height="50">
         </span>
@@ -37,7 +37,7 @@
       </a>
 
       <!-- LOGO -->
-      <a href="index.html" class="logo text-center logo-dark">
+      <a href="?" class="logo text-center logo-dark">
         <span class="logo-lg">
           <img src="recursos/assets/images/3.png" alt="" height="16">
         </span>
@@ -346,22 +346,22 @@
                 </a>
 
                 <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                <!-- <a href="javascript:void(0);" class="dropdown-item notify-item">
                   <i class="mdi mdi-account-edit me-1"></i>
                   <span>Configuración</span>
-                </a>
+                </a> -->
 
                 <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                <!-- <a href="javascript:void(0);" class="dropdown-item notify-item">
                   <i class="mdi mdi-lifebuoy me-1"></i>
                   <span>Soporte</span>
-                </a>
+                </a> -->
 
                 <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                <!-- <a href="javascript:void(0);" class="dropdown-item notify-item">
                   <i class="mdi mdi-lock-outline me-1"></i>
                   <span>Lock Screen</span>
-                </a>
+                </a> -->
 
                 <!-- item-->
                 <a href="?c=usuario&a=cerrarSesion" class="dropdown-item notify-item">
@@ -378,9 +378,9 @@
           <div class="app-search dropdown d-none d-lg-block">
             <form>
               <div class="input-group">
-                <input type="text" class="form-control dropdown-toggle" placeholder="Search..." id="top-search">
+                <input type="text" class="form-control dropdown-toggle" placeholder="BUscar..." id="top-search">
                 <span class="mdi mdi-magnify search-icon"></span>
-                <button class="input-group-text btn-primary" type="submit">Buscar</button>
+                <button class="input-group-text btn-guinda" type="submit">Buscar</button>
               </div>
             </form>
 
@@ -592,6 +592,9 @@
   <!-- demo app -->
   <script src="recursos/assets/js/pages/demo.dashboard-analytics.js"></script>
   <!-- end demo js-->
+
+  <!-- ajax -->
+  <script src="recursos/js/ajax.js"></script>
   <?php
   $var = isset($_GET['c']) ? $_GET['c'] : '';
 if($var=='estudiante'){

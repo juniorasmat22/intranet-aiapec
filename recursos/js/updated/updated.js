@@ -13,7 +13,7 @@ function mostrar_campos() {
     }
 }
 function mostrar_solo_colegio(){
-    var codigo_solo_colegio = document.getElementById("colegioEstudiante").value;
+    var codigo_solo_colegio = document.getElementById("colegioEscolar").value;
     if (codigo_solo_colegio=="AIAPAEC") {
         document.getElementById("solo_colegio_aiapaec").style.display = "flex";
     } else {

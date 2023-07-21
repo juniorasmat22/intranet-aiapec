@@ -32,47 +32,54 @@ $lista_niveles = $nivel->modelo->listar();
 
                 <h4 class="header-title mb-3"> Hola <?php echo $_SESSION['name']; ?>, actualiza tus datos antes de empezar </h4>
 
-                <form>
+                <form action="?c=estudiante&a=actualizar" name="formCrear" id="formCrear" method="post" >
                     <h5 class="mb-3 text-uppercase bg-light p-2"><i class="mdi mdi-office-building me-1"></i> Datos del Estudiante</h5>
+                    <input type="hidden" id="idEstudiante" name="idEstudiante" value="<?php echo $_SESSION['idEstudiante']; ?>">
+                    <input type="hidden" id="tycEstudiante" name="tycEstudiante" value="<?php  echo $estudiante->resultado->tycEstudiante; ?>">
+                    <input type="hidden" id="idUsuario" name="idUsuario" value="<?php  echo $_SESSION['id']; ?>">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="tipodocumentoEstudiante" class="form-label">Documento</label>
-                                <select class="form-control select2" disabled name="tipodocumentoEstudiante" id="tipodocumentoEstudiante" data-toggle="select2">
-                                    <option value="DNI">D.N.I</option>
-                                    <option value="Carnet de extranjería">Carnet de extranjería</option>
-                                    <option value="Pasaporte">Pasaporte</option>
-                                </select>
+                                <!-- <select class="form-control select2"   name="tipodocumentoEstudiante" id="tipodocumentoEstudiante" data-toggle="select2" readonly="readonly">
+                                    <option value="D.N.I" <?php //if ( $estudiante->resultado->tipodocumentoEstudiante == 'D.N.I') echo 'selected'; ?>>D.N.I</option>
+                                    <option value="Carnet de extranjería" <?php // if ( $estudiante->resultado->tipodocumentoEstudiante == 'Carnet de extranjería') echo 'selected'; ?>>Carnet de extranjería</option>
+                                    <option value="Pasaporte" <?php // if ( $estudiante->resultado->tipodocumentoEstudiante == 'Pasaporte') echo 'Pasaporte'; ?>>Pasaporte</option>
+                                </select> -->
+                                <input type="text" readonly="readonly" value="<?php echo $estudiante->resultado->tipodocumentoEstudiante; ?>" class="form-control" name="tipodocumentoEstudiante" id="tipodocumentoEstudiante"  placeholder="Ingrese su tipo de documento">
+
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="numerodocumentoEstudiante" class="form-label">Nro. Documento</label>
-                                <input type="number" value="<?php echo $estudiante->resultado->numerodocumentoEstudiante; ?>" class="form-control" name="numerodocumentoEstudiante" id="numerodocumentoEstudiante" disabled placeholder="Ingrese su número de documento">
+                                <input type="number" readonly="readonly" value="<?php echo $estudiante->resultado->numerodocumentoEstudiante; ?>" class="form-control" name="numerodocumentoEstudiante" id="numerodocumentoEstudiante"  placeholder="Ingrese su número de documento">
+                                <span class="font-13 text-muted">En caso desees modificar tu número de documento, contactar con soporte</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="apellidoEstudiante" class="form-label">Apellidos</label>
-                                <input type="text" class="form-control" value="<?php echo $estudiante->resultado->apellidoEstudiante; ?>" id="apellidoEstudiante" name="apellidoEstudiante" placeholder="Ingrese sus Apellidos">
-                            </div>
+                                
+                                <input maxlength="25" data-toggle="maxlength" type="text" class="form-control" value="<?php echo $estudiante->resultado->apellidoEstudiante; ?>" id="apellidoEstudiante" name="apellidoEstudiante" placeholder="Ingrese sus Apellidos">
+                                 </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="nombresEstudiante" class="form-label">Nombres</label>
-                                <input type="text" class="form-control" name="nombresEstudiante" id="nombresEstudiante" value="<?php echo $estudiante->resultado->nombresEstudiante; ?>" placeholder="Ingrese sus Nombres">
+                                <input type="text" maxlength="25" data-toggle="maxlength" class="form-control" name="nombresEstudiante" id="nombresEstudiante" value="<?php echo $estudiante->resultado->nombresEstudiante; ?>" placeholder="Ingrese sus Nombres">
                             </div>
                         </div> <!-- end col -->
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="correoEstudiante" class="form-label">Celular</label>
-                                <input type="text" class="form-control" id="correoEstudiante" name="correoEstudiante" value="<?php echo $estudiante->resultado->celularEstudiante; ?>" placeholder="Ingrese su número de celular">
+                                <label for="correoEstudiante" class="form-label">Correo</label>
+                                <input type="text" maxlength="30" data-toggle="maxlength" class="form-control" id="correoEstudiante" name="correoEstudiante" value="<?php echo $estudiante->resultado->correoEstudiante; ?>" placeholder="Ingrese su número de celular">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="celularEstudiante" class="form-label">Correo</label>
-                                <input type="text" class="form-control" id="celularEstudiante" value="<?php echo $estudiante->resultado->correoEstudiante; ?>" name="celularEstudiante" placeholder="Ingrese su correo electrónico">
+                                <label for="celularEstudiante" class="form-label">Celular</label>
+                                <input type="number" maxlength="9" data-toggle="maxlength" class="form-control" id="celularEstudiante" value="<?php echo $estudiante->resultado->celularEstudiante; ?>" name="celularEstudiante" placeholder="Ingrese su correo electrónico">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -98,7 +105,8 @@ $lista_niveles = $nivel->modelo->listar();
                         <div class="col-12">
                             <div class="mb-3">
                                 <label for="direccionEstudiante" class="form-label">Dirección</label>
-                                <textarea class="form-control" id="direccionEstudiante" name="direccionEstudiante" rows="2" placeholder="Indique su dirección: ..."></textarea>
+                                <textarea maxlength="100" data-toggle="maxlength" class="form-control" id="direccionEstudiante" name="direccionEstudiante" rows="2" placeholder="Indique su dirección: ..."></textarea>
+                                <span class="font-13 text-muted">e.g "Calle, número - Distrito."</span>
                             </div>
                         </div> <!-- end col -->
                     </div> <!-- end row -->
@@ -109,19 +117,19 @@ $lista_niveles = $nivel->modelo->listar();
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="dniApoderadoEstudiante" class="form-label">D.N.I</label>
-                                <input type="number" class="form-control" id="dniApoderadoEstudiante" name="dniApoderadoEstudiante" placeholder="Ingrese su número de documento">
+                                <input type="number" maxlength="8" data-toggle="maxlength" class="form-control" id="dniApoderadoEstudiante" name="dniApoderadoEstudiante" placeholder="Ingrese su número de documento">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="apellidoApoderadoEstudiante" class="form-label">Apellidos</label>
-                                <input type="text" class="form-control" name="apellidoApoderadoEstudiante" id="apellidoApoderadoEstudiante" placeholder="Ingrese sus Apellidos">
+                                <input type="text" maxlength="45" data-toggle="maxlength" class="form-control" name="apellidoApoderadoEstudiante" id="apellidoApoderadoEstudiante" placeholder="Ingrese sus Apellidos">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="nombreApoderadoEstudiante" class="form-label">Nombres</label>
-                                <input type="text" class="form-control" name="nombreApoderadoEstudiante" id="nombreApoderadoEstudiante" placeholder="Ingrese sus Nombres">
+                                <input type="text" maxlength="45" data-toggle="maxlength" class="form-control" name="nombreApoderadoEstudiante" id="nombreApoderadoEstudiante" placeholder="Ingrese sus Nombres">
                             </div>
                         </div> <!-- end col -->
                         <div class="col-md-6">
@@ -133,7 +141,7 @@ $lista_niveles = $nivel->modelo->listar();
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="correoApoderadoEstudiante" class="form-label">Correo</label>
-                                <input type="email" class="form-control" name="correoApoderadoEstudiante" id="correoApoderadoEstudiante" placeholder="Ingrese su correo electrónico">
+                                <input type="email" maxlength="30" data-toggle="maxlength" class="form-control" name="correoApoderadoEstudiante" id="correoApoderadoEstudiante" placeholder="Ingrese su correo electrónico">
                             </div>
                         </div>
                     </div> <!-- end row -->
@@ -244,8 +252,8 @@ $lista_niveles = $nivel->modelo->listar();
                         </div> <!-- end col -->
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="colegioEstudiante" class="form-label">Colegio de procedencia</label>
-                                <select required onchange="mostrar_solo_colegio()" class="form-control select2" name="colegioEstudiante" id="colegioEstudiante" data-toggle="select2">
+                                <label for="colegioEscolar" class="form-label">Colegio de procedencia</label>
+                                <select required onchange="mostrar_solo_colegio()" class="form-control select2" name="colegioEscolar" id="colegioEscolar" data-toggle="select2">
                                     <option selected disabled>Seleccione una opción</option>
                                     <option value="1568 NIÑO JESUS DE PRAGA">1568 NIÑO JESUS DE PRAGA</option>
                                     <option value="1591 LA CASA DEL NIÑO">1591 LA CASA DEL NIÑO</option>
@@ -656,8 +664,8 @@ $lista_niveles = $nivel->modelo->listar();
                     <div class="row" id="solo_colegio_aiapaec" style="display: none;">
                             <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label for="firstname" class="form-label">Sede</label>
-                                        <select required class="form-control select2" name="s" id="s" data-toggle="select2" >
+                                        <label for="sedeColegio" class="form-label">Sede</label>
+                                        <select required class="form-control select2" name="sedeColegio" id="sedeColegio" data-toggle="select2" >
                                             <option selected disabled>Seleccione una opción</option>
                                             <option value="1">El Bosque</option>
                                             <option value="2">Moche</option>
@@ -668,8 +676,8 @@ $lista_niveles = $nivel->modelo->listar();
                                 </div> <!-- end col -->
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label for="firstname" class="form-label">Sección</label>
-                                        <select required class="form-control select2" name="e" id="e" data-toggle="select2">
+                                        <label for="seccionColegio" class="form-label">Sección</label>
+                                        <select required class="form-control select2" name="seccionColegio" id="seccionColegio" data-toggle="select2">
                                             <option selected disabled>Seleccione una opción</option>
                                             <option value="A">A</option>
                                             <option value="B">B</option>
@@ -688,3 +696,4 @@ $lista_niveles = $nivel->modelo->listar();
     </div> <!-- end col -->
 </div>
 <!-- end row -->
+

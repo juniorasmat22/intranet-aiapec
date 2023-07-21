@@ -33,7 +33,7 @@ class Estudiante extends Entidad
 	public $fechaNacimientoEstudiante;
 	public $edadEstudiante;
 	public $idGrado;
-	public $colegioEstudiante;
+	public $colegioEscolar;
 	public $situacionEstudiante;
 	/*
 	FIN
@@ -45,6 +45,8 @@ class Estudiante extends Entidad
 	public $passEstudiante;
 	public $sexoEstudiante;
 	public $datosUpdated;
+	public $sedeColegio;
+	public $seccionColegio;
 	public function setConsulta($filaConsulta)
 	{
 		$this->idEstudiante = $this->obtenerColumna($filaConsulta, 'id_estudiante');
@@ -88,56 +90,55 @@ class Estudiante extends Entidad
 		$statement->bindValue(10, $this->apellidoApoderadoEstudiante, PDO::PARAM_STR);
 		$statement->bindValue(11, $this->correoApoderadoEstudiante, PDO::PARAM_STR);
 		$statement->bindValue(12, $this->celularApoderadoEstudiante, PDO::PARAM_STR);
-		$statement->bindValue(13, $this->modalidadEstudiante, PDO::PARAM_STR);
-		$statement->bindValue(14, $this->estadoEstudiante, PDO::PARAM_STR);
-		$statement->bindValue(15, $this->idCarrera, PDO::PARAM_INT);
-		$statement->bindValue(16, $this->idUsuario, PDO::PARAM_INT);
-		$statement->bindValue(17, date("Y-m-d H:i:s", strtotime($this->fechaRegistroEstudiante)), PDO::PARAM_STR);
-		$statement->bindValue(18, $this->dniApoderadoEstudiante, PDO::PARAM_STR);
-		$statement->bindValue(19, $this->tipoEstudiante, PDO::PARAM_STR);
-		$statement->bindValue(20, date("Y-m-d", strtotime($this->fechaNacimientoEstudiante)), PDO::PARAM_STR);
-		$statement->bindValue(21, $this->edadEstudiante, PDO::PARAM_INT);
-		$statement->bindValue(22, $this->idGrado, PDO::PARAM_INT);
-		$statement->bindValue(23, $this->colegioEstudiante, PDO::PARAM_STR);
-		$statement->bindValue(24, $this->situacionEstudiante, PDO::PARAM_STR);
-		$statement->bindValue(25, $this->tycEstudiante, PDO::PARAM_STR);
-		$statement->bindValue(26, $this->sexoEstudiante, PDO::PARAM_STR);
-		$statement->bindValue(27, $this->datosUpdated, PDO::PARAM_STR);
-		$statement->bindValue(28, $this->passEstudiante, PDO::PARAM_STR);
-		$statement->bindValue(29, $this->opcion, PDO::PARAM_INT);
-		$statement->bindValue(30, $this->pagina, PDO::PARAM_INT);
+		// $statement->bindValue(13, $this->modalidadEstudiante, PDO::PARAM_STR);
+		$statement->bindValue(13, $this->estadoEstudiante, PDO::PARAM_STR);
+		// $statement->bindValue(15, $this->idCarrera, PDO::PARAM_INT);
+		$statement->bindValue(14, $this->idUsuario, PDO::PARAM_INT);
+		$statement->bindValue(15, date("Y-m-d H:i:s", strtotime($this->fechaRegistroEstudiante)), PDO::PARAM_STR);
+		$statement->bindValue(16, $this->dniApoderadoEstudiante, PDO::PARAM_STR);
+		$statement->bindValue(17, $this->tipoEstudiante, PDO::PARAM_STR);
+		$statement->bindValue(18, date("Y-m-d", strtotime($this->fechaNacimientoEstudiante)), PDO::PARAM_STR);
+		$statement->bindValue(19, $this->edadEstudiante, PDO::PARAM_INT);
+		// $statement->bindValue(22, $this->idGrado, PDO::PARAM_INT);
+		// $statement->bindValue(23, $this->colegioEscolar, PDO::PARAM_STR);
+		$statement->bindValue(20, $this->situacionEstudiante, PDO::PARAM_STR);
+		$statement->bindValue(21, $this->tycEstudiante, PDO::PARAM_STR);
+		$statement->bindValue(22, $this->sexoEstudiante, PDO::PARAM_STR);
+		$statement->bindValue(23, $this->datosUpdated, PDO::PARAM_STR);
+		// $statement->bindValue(24, $this->passEstudiante, PDO::PARAM_STR);
+		$statement->bindValue(24, $this->opcion, PDO::PARAM_INT);
+		$statement->bindValue(25, $this->pagina, PDO::PARAM_INT);
 		return $statement;
 	}
 
 	public function set($metodo)
 	{
 
-		$this->idEstudiante		= $metodo('idEstudiante');
+		$this->idEstudiante					= $metodo('idEstudiante');
+		$this->tipodocumentoEstudiante		= $metodo('tipodocumentoEstudiante');
 		$this->numerodocumentoEstudiante	= $metodo('numerodocumentoEstudiante');
-		$this->apellidoEstudiante = $metodo('apellidoEstudiante');
-		$this->nombresEstudiante	= $metodo('nombresEstudiante');
-		$this->correoEstudiante		= $metodo('correoEstudiante');
-		$this->celularEstudiante	= $metodo('celularEstudiante');
-		$this->direccionEstudiante		= $metodo('direccionEstudiante');
-		$this->nombreApoderadoEstudiante = $metodo('nombreApoderadoEstudiante');
+		$this->apellidoEstudiante 			= $metodo('apellidoEstudiante');
+		$this->nombresEstudiante			= $metodo('nombresEstudiante');
+		$this->correoEstudiante				= $metodo('correoEstudiante');
+		$this->celularEstudiante			= $metodo('celularEstudiante');
+		$this->direccionEstudiante			= $metodo('direccionEstudiante');
+		$this->nombreApoderadoEstudiante 	= $metodo('nombreApoderadoEstudiante');
 		$this->apellidoApoderadoEstudiante	= $metodo('apellidoApoderadoEstudiante');
 		$this->correoApoderadoEstudiante	= $metodo('correoApoderadoEstudiante');
 		$this->celularApoderadoEstudiante	= $metodo('celularApoderadoEstudiante');
 		$this->modalidadEstudiante			= $metodo('modalidadEstudiante');
-		$this->estadoEstudiante		= $metodo('estadoEstudiante');
-		$this->idCarrera			= $metodo('idCarrera');
-		$this->idUsuario			= $metodo('idUsuario');
-		$this->tipodocumentoEstudiante	= $metodo('tipodocumentoEstudiante');	
-
-		$this->dniApoderadoEstudiante			= $metodo('dniApoderadoEstudiante');
-		$this->tipoEstudiante			= $metodo('tipoEstudiante');
-		$this->fechaNacimientoEstudiante			= $metodo('fechaNacimientoEstudiante');
-		$this->edadEstudiante			= $metodo('edadEstudiante');
-		$this->idGrado			= $metodo('idGrado');
-		$this->tipoEstudiante			= $metodo('tipoEstudiante');
-		$this->colegioEstudiante			= $metodo('colegioEstudiante');
+		$this->estadoEstudiante				= $metodo('estadoEstudiante');
+		$this->idCarrera					= $metodo('idCarrera');
+		$this->idUsuario					= $metodo('idUsuario');
+		$this->dniApoderadoEstudiante		= $metodo('dniApoderadoEstudiante');
+		$this->tipoEstudiante				= $metodo('tipoEstudiante');
+		$this->fechaNacimientoEstudiante	= $metodo('fechaNacimientoEstudiante');
+		$this->edadEstudiante				= $metodo('edadEstudiante');
+		$this->idGrado						= $metodo('idGrado');
+		$this->tipoEstudiante				= $metodo('tipoEstudiante');
+		$this->colegioEscolar				= $metodo('colegioEscolar');
 		$this->situacionEstudiante			= $metodo('situacionEstudiante');
-		$this->tycEstudiante			= $metodo('tycEstudiante');
-		$this->tycEstudiante			= $metodo('sexoEstudiante');
+		$this->tycEstudiante				= $metodo('tycEstudiante');
+		$this->sexoEstudiante				= $metodo('sexoEstudiante');
 	}
 }

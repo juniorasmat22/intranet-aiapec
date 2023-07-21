@@ -75,9 +75,9 @@ $(document).ready( function () {
         r=JSON.parse(data);
         if(r.respuesta){
           $("#formCrear").trigger("reset");
-          $("#crearModal").modal('hide');
+          // $("#crearModal").modal('hide');
           alert('Nuevo registro creado');
-          location.reload();
+          window.location.replace("http://localhost/intranet-aiapaec/");
         }
         else
           alert(r.mensaje);
