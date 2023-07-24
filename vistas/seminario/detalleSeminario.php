@@ -239,12 +239,12 @@ if (!$respuesta->respuesta) {
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
             </div>
             <div class="modal-body">
-                <form class="needs-validation" novalidate action="?c=registroseminario&a=registro" method="post" id="formCrear" enctype="multipart/form-data">
+                <form class="needs-validation" novalidate action="?c=Matriculaseminario&a=matricula" method="post" id="formCrearMatricula" enctype="multipart/form-data">
                     <input type="text" value="<?php echo $fila_seminario->idSeminario; ?>" name="idSeminario">
                     <input type="text" value="<?php echo $_SESSION['idEstudiante'] ?>" name="idEstudiante">
                     <div class="position-relative mb-3">
                         <label class="form-label" for="validationTooltip01">Monto Cancelado</label>
-                        <input type="number" class="form-control" id="montoPagoSeminario" placeholder="Monto Pagado" required>
+                        <input type="number" class="form-control" name="montoPagoSeminario" placeholder="Monto Pagado" required>
                         <div class="valid-tooltip">
                             Genial!
                         </div>
@@ -256,7 +256,7 @@ if (!$respuesta->respuesta) {
                     </div>
                     <div class="position-relative mb-3">
                         <label for="example-select" class="form-label">Tipo de Pago</label>
-                        <select class="form-select" id="tipoPago" name="tipoPago">
+                        <select class="form-select" id="tipoPagoSeminario" name="tipoPagoSeminario">
                             <option>Tranferencia B.C.P</option>
                             <option>Yape</option>
                             <option>Tranferencia Interbancaria</option>
@@ -273,15 +273,15 @@ if (!$respuesta->respuesta) {
                     <div class="position-relative mb-3">
                         <label class="form-label" for="operacion">Nro de Operación</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="operacion" placeholder="Nro de Operación" aria-describedby="validationTooltipUsernamePrepend" required>
+                            <input type="text" class="form-control" name="operacion" placeholder="Nro de Operación" aria-describedby="validationTooltipUsernamePrepend" required>
                             <div class="invalid-tooltip">
                                 Por favor ingresa un numero válido.
                             </div>
                         </div>
                     </div>
                     <div class="position-relative mb-3">
-                        <label for="example-fileinput" class="form-label">Recibo</label>
-                        <input type="file" id="example-fileinput" class="form-control" required>
+                        <label for="recibo" class="form-label">Recibo</label>
+                        <input type="file"   id="recibo" name="recibo"class="form-control" required accept="image/*">
                         <div class="invalid-tooltip">
                            Por favor seleccion un recibo.
                         </div>
