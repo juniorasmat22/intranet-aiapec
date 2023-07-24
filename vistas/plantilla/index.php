@@ -9,6 +9,15 @@
   <meta content="Coderthemes" name="author">
   <!-- App favicon -->
   <link rel="shortcut icon" href="recursos/img/letra_color.png">
+  <?php   
+  $var = isset($_GET['c']) ? $_GET['c'] : '';
+  if($var=='seminario'){
+    // echo '<link href="recursos/assets/css/vendor/dataTables.bootstrap5.css" rel="stylesheet" type="text/css">';
+    // echo '<link href="recursos/assets/css/vendor/responsive.bootstrap5.css" rel="stylesheet" type="text/css">';
+    // echo '<link href="recursos/assets/css/vendor/buttons.bootstrap5.css" rel="stylesheet" type="text/css">';
+  
+  }
+  ?>
   <!-- para el dashboard -->
   <!-- third party css -->
   <link href="recursos/assets/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css">
@@ -18,6 +27,9 @@
   <link href="recursos/assets/css/app.min.css" rel="stylesheet" type="text/css" id="light-style">
   <link href="recursos/assets/css/app-dark.min.css" rel="stylesheet" type="text/css" id="dark-style">
 
+  
+  
+  ?>
 </head>
 
 <body class="loading" data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": true}'>
@@ -78,11 +90,24 @@
               </a>
             </li>
 
+            
             <li class="side-nav-item">
-              <a href="apps-chat.html" class="side-nav-link">
-                <i class="uil-comments-alt"></i>
+              <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+                <i class="uil-home-alt"></i>
+                <span class="badge bg-success float-end">1</span>
                 <span> Seminarios </span>
               </a>
+              <div class="collapse" id="sidebarDashboards">
+                <ul class="side-nav-second-level">
+                  <li>
+                    <a href="?c=seminario">Ver Todos</a>
+                  </li>
+                  <li>
+                    <a href="?c=seminario&a=updated">Mis Seminarios</a>
+                  </li>
+                 
+                </ul>
+              </div>
             </li>
 
             <li class="side-nav-item">
@@ -596,9 +621,16 @@
   <!-- ajax -->
   <script src="recursos/js/ajax.js"></script>
   <?php
-  $var = isset($_GET['c']) ? $_GET['c'] : '';
+
 if($var=='estudiante'){
   echo '<script src="recursos/js/updated/updated.js"></script>';
+}
+if($var=='seminario'){
+  echo  '<script src="recursos/assets/js/vendor/jquery.dataTables.min.js"></script>';
+  echo '<script src="recursos/assets/js/vendor/dataTables.bootstrap5.js"></script>';
+  echo '<script  src="recursos/assets/js/vendor/dataTables.responsive.min.js"></script>';
+  echo '<script src="recursos/assets/js/vendor/responsive.bootstrap5.min.js"></script>';
+  // echo '<script src="recursos/assets/js/pages/demo.datatable-init.js"></script>';
 }
 ?>
 
