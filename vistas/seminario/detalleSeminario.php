@@ -175,9 +175,9 @@ if (!$respuesta->respuesta) {
                                                         }
                                                     } else {
                                                         ?>
-                                                        <script type="text/javascript">
-                                                            alert('error al obtener los temas por curso')
-                                                        </script>
+                                                        <div class="alert alert-danger" role="alert">
+                                                            <i class="dripicons-wrong me-2"></i> No hay <strong>temas de <?php echo $mi_curso->resultado->nombreCurso; ?></strong> aún registrados
+                                                        </div>
                                                     <?php
                                                     }
                                                     ?>
@@ -234,7 +234,7 @@ if (!$respuesta->respuesta) {
 <div id="registro-seminario-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="registro-seminario-modalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header modal-colored-header bg-info">
+            <div class="modal-header modal-colored-header bg-guinda">
                 <h4 class="modal-title" id="registro-seminario-modalLabel">Formulario de registro - <?php echo $fila_seminario->nombreSeminario; ?> </h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
             </div>
@@ -290,7 +290,7 @@ if (!$respuesta->respuesta) {
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-info">Guardar</button>
+                        <button type="submit" class="btn btn-guinda">Guardar</button>
                     </div>
                 </form>
             </div>
