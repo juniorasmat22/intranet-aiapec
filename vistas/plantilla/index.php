@@ -11,10 +11,11 @@
   <link rel="shortcut icon" href="recursos/img/letra_color.png">
   <?php   
   $var = isset($_GET['c']) ? $_GET['c'] : '';
-  if($var=='seminario'){
-    // echo '<link href="recursos/assets/css/vendor/dataTables.bootstrap5.css" rel="stylesheet" type="text/css">';
-    // echo '<link href="recursos/assets/css/vendor/responsive.bootstrap5.css" rel="stylesheet" type="text/css">';
-    // echo '<link href="recursos/assets/css/vendor/buttons.bootstrap5.css" rel="stylesheet" type="text/css">';
+  $var_action = isset($_GET['a']) ? $_GET['a'] : '';
+  if( $var=='Matriculaseminario'){
+    echo '<link href="recursos/assets/css/vendor/dataTables.bootstrap5.css" rel="stylesheet" type="text/css">';
+    echo '<link href="recursos/assets/css/vendor/responsive.bootstrap5.css" rel="stylesheet" type="text/css">';
+    echo '<link href="recursos/assets/css/vendor/buttons.bootstrap5.css" rel="stylesheet" type="text/css">';
   
   }
   ?>
@@ -103,7 +104,7 @@
                     <a href="?c=seminario">Ver Todos</a>
                   </li>
                   <li>
-                    <a href="?c=seminario&a=updated">Mis Seminarios</a>
+                    <a href="?c=Matriculaseminario&a=misSeminarios">Mis Seminarios</a>
                   </li>
                  
                 </ul>
@@ -627,11 +628,14 @@ if($var=='estudiante'){
 }
 if($var=='seminario'){
   echo '<script src="recursos/js/simulacro/registro.js"></script>';
+  
+}
+if ($var=='Matriculaseminario') {
   echo  '<script src="recursos/assets/js/vendor/jquery.dataTables.min.js"></script>';
   echo '<script src="recursos/assets/js/vendor/dataTables.bootstrap5.js"></script>';
   echo '<script  src="recursos/assets/js/vendor/dataTables.responsive.min.js"></script>';
   echo '<script src="recursos/assets/js/vendor/responsive.bootstrap5.min.js"></script>';
-  // echo '<script src="recursos/assets/js/pages/demo.datatable-init.js"></script>';
+  echo '<script src="recursos/assets/js/pages/demo.datatable-init.js"></script>';
 }
 ?>
 

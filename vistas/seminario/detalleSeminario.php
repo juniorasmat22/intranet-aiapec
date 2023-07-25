@@ -240,11 +240,11 @@ if (!$respuesta->respuesta) {
             </div>
             <div class="modal-body">
                 <form class="needs-validation" novalidate action="?c=Matriculaseminario&a=matricula" method="post" id="formCrearMatricula" enctype="multipart/form-data">
-                    <input type="text" value="<?php echo $fila_seminario->idSeminario; ?>" name="idSeminario">
-                    <input type="text" value="<?php echo $_SESSION['idEstudiante'] ?>" name="idEstudiante">
+                    <input type="hidden" value="<?php echo $fila_seminario->idSeminario; ?>" name="idSeminario">
+                    <input type="hidden" value="<?php echo $_SESSION['idEstudiante'] ?>" name="idEstudiante">
                     <div class="position-relative mb-3">
                         <label class="form-label" for="validationTooltip01">Monto Cancelado</label>
-                        <input type="number" class="form-control" name="montoPagoSeminario" placeholder="Monto Pagado" required>
+                        <input type="number" step="any" class="form-control" name="montoPagoSeminario" placeholder="Monto Pagado" required>
                         <div class="valid-tooltip">
                             Genial!
                         </div>

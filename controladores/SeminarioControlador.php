@@ -16,4 +16,5 @@ class SeminarioControlador extends Controlador
 		$respuesta=$this->modelo->get($this->entidad);
 		require 'vistas/plantilla/index.php';
 	}
+	
 }

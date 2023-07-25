@@ -49,6 +49,14 @@ class MatriculaseminarioControlador extends Controlador
 		$respuesta=$this->modelo->crear($this->entidad);
 		$this->respuesta($respuesta);
 	}
+
+	public function misSeminarios() {
+
+		$vista = $this->vista='vistas/matriculaseminario/misSeminarios.php';
+		$this->entidad->idEstudiante=$_SESSION['idEstudiante'];
+		$respuesta=$this->modelo->get_matricula_seminario_por_estudiante($this->entidad);
+		require 'vistas/plantilla/index.php';
+	}
 	
 	
 }
