@@ -67,6 +67,10 @@ BEGIN
 	if opcion=5 then
 		select * from tbl_semestre where id_semestre=idSemestre;
   end if;
+-- get semestre activo
+  	if opcion=6 then
+		select * from tbl_semestre where estado_semestre='1';
+  end if;
 
 END $$
 DELIMITER ;

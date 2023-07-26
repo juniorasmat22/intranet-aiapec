@@ -60,9 +60,11 @@ BEGIN
 		select * from tbl_programa_sede  WHERE id_programa_sede=idProgramaSede;
   end if;
 
-    -- get programas por sede
+    -- get seded por programa
 	if opcion=6 then
-		select * from tbl_programas_academia where id_sede=idSede;
+		select tps.*,ts.sede_nombre  from tbl_programa_sede tps  
+    inner join tbl_sede ts on tps.id_sede =ts.id_sede 
+    where tps.id_programas_academia=idProgramasAcademia;
   end if;
   
 END $$

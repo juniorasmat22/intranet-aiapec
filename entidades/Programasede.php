@@ -6,13 +6,14 @@ class Programasede extends Entidad
 	public $idProgramaSede;
     public $idProgramasAcademia;
 	public $idSede;
+	public $nombreSede;
 	
 
 	public function setConsulta($filaConsulta){
 		$this->idProgramaSede=$this->obtenerColumna($filaConsulta,'id_programa_sede');
 		$this->idProgramasAcademia=$this->obtenerColumna($filaConsulta,'id_programas_academia');
 		$this->idSede=$this->obtenerColumna($filaConsulta,'id_sede');
-			
+		$this->nombreSede=$this->obtenerColumna($filaConsulta,'sede_nombre');
     }
 	
 	public function bindValues($statement){

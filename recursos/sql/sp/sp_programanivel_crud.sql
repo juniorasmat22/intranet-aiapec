@@ -63,7 +63,9 @@ BEGIN
 
     -- get programas por nivel
 	if opcion=6 then
-		select * from tbl_programa_nivel where id_programas_academia=idProgramasAcademia;
+		 select tpn.*,tn.descripcion_nivelp  from tbl_programa_nivel tpn 
+      inner  join tbl_nivelp tn on tn.id_nivelp = tpn.id_nivelp
+      where tpn.id_programas_academia=idProgramasAcademia;
   end if;
   
 END $$

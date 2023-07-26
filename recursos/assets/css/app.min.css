@@ -2323,6 +2323,18 @@ progress {
     color: var(--bs-table-hover-color)
 }
 
+.table-aiapaec {
+    --bs-table-bg: #631410;
+    --bs-table-striped-bg: #fff;
+    --bs-table-striped-color: #fff;
+    --bs-table-active-bg: #fff;
+    --bs-table-active-color: #fff;
+    --bs-table-hover-bg: #F5AD4D;
+    --bs-table-hover-color: #F5AD4D;
+    color: #fff;
+    border-color: #F5AD4D
+}
+
 .table-primary {
     --bs-table-bg: #e3e5fd;
     --bs-table-striped-bg: #313a46;

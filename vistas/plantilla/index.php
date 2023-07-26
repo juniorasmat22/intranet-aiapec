@@ -12,7 +12,7 @@
   <?php   
   $var = isset($_GET['c']) ? $_GET['c'] : '';
   $var_action = isset($_GET['a']) ? $_GET['a'] : '';
-  if( $var=='Matriculaseminario'){
+  if( $var=='Matriculaseminario' || $var=='matricula'){
     echo '<link href="recursos/assets/css/vendor/dataTables.bootstrap5.css" rel="stylesheet" type="text/css">';
     echo '<link href="recursos/assets/css/vendor/responsive.bootstrap5.css" rel="stylesheet" type="text/css">';
     echo '<link href="recursos/assets/css/vendor/buttons.bootstrap5.css" rel="stylesheet" type="text/css">';
@@ -83,9 +83,30 @@
             </li>
           <?php } else { ?>
             <li class="side-nav-title side-nav-item">Opciones</li>
+            <li class="side-nav-item">
+              <a data-bs-toggle="collapse" href="#sidebarProgramas" aria-expanded="false" aria-controls="sidebarProgramas" class="side-nav-link">
+                <i class="uil-home-alt"></i>
+                <!-- <span class="badge bg-success float-end">1</span> -->
+                
+                <span> Programas </span>
+                <span class="menu-arrow"></span>
+
+              </a>
+              <div class="collapse" id="sidebarProgramas">
+                <ul class="side-nav-second-level">
+                  <li>
+                    <a href="?c=programasacademia&a=escolares">Escolares</a>
+                  </li>
+                  <li>
+                    <a href="?c=programasacademia&a=preuniversitarios">Preuniversitarios</a>
+                  </li>
+                 
+                </ul>
+              </div>
+            </li>
 
             <li class="side-nav-item">
-              <a href="apps-calendar.html" class="side-nav-link">
+              <a href="?c=matricula" class="side-nav-link">
                 <i class="uil-calender"></i>
                 <span> Matrícula </span>
               </a>
@@ -95,8 +116,9 @@
             <li class="side-nav-item">
               <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
                 <i class="uil-home-alt"></i>
-                <span class="badge bg-success float-end">1</span>
+                <!-- <span class="badge bg-success float-end">1</span> -->
                 <span> Seminarios </span>
+                <span class="menu-arrow"></span>
               </a>
               <div class="collapse" id="sidebarDashboards">
                 <ul class="side-nav-second-level">
@@ -404,7 +426,7 @@
           <div class="app-search dropdown d-none d-lg-block">
             <form>
               <div class="input-group">
-                <input type="text" class="form-control dropdown-toggle" placeholder="BUscar..." id="top-search">
+                <input type="text" class="form-control dropdown-toggle" placeholder="Buscar..." id="top-search">
                 <span class="mdi mdi-magnify search-icon"></span>
                 <button class="input-group-text btn-guinda" type="submit">Buscar</button>
               </div>
@@ -630,12 +652,16 @@ if($var=='seminario'){
   echo '<script src="recursos/js/simulacro/registro.js"></script>';
   
 }
-if ($var=='Matriculaseminario') {
+if ($var=='Matriculaseminario' || $var=='matricula') {
   echo  '<script src="recursos/assets/js/vendor/jquery.dataTables.min.js"></script>';
   echo '<script src="recursos/assets/js/vendor/dataTables.bootstrap5.js"></script>';
   echo '<script  src="recursos/assets/js/vendor/dataTables.responsive.min.js"></script>';
   echo '<script src="recursos/assets/js/vendor/responsive.bootstrap5.min.js"></script>';
   echo '<script src="recursos/assets/js/pages/demo.datatable-init.js"></script>';
+}
+if ($var=='matricula') {
+
+ echo '<script src="recursos/js/matricula/matricula.js"></script>';
 }
 ?>
 

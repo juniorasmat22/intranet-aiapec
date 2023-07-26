@@ -7,12 +7,14 @@ class Programanivel extends Entidad
 	public $descripcionProgramaNivel;
 	public $idProgramasAcademia;
 	public $idNivelp;
+	public $nombreNivel;
 
 	public function setConsulta($filaConsulta){
 		$this->idProgramaNivel=$this->obtenerColumna($filaConsulta,'id_programa_nivel');
 		$this->descripcionProgramaNivel=$this->obtenerColumna($filaConsulta,'decripcion_programa_nivel');
 		$this->idProgramasAcademia=$this->obtenerColumna($filaConsulta,'id_programas_academia');
 		$this->idNivelp=$this->obtenerColumna($filaConsulta,'id_nivelp');
+		$this->nombreNivel=$this->obtenerColumna($filaConsulta,'descripcion_nivelp');
 	}
 	public function bindValues($statement){
 		$statement->bindValue(1,$this->idProgramaNivel,PDO::PARAM_INT);
