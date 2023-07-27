@@ -6,4 +6,8 @@ class ProgramasedeModelo extends Modelo{
 		parent::__construct('sp_programasede_crud(?,?,?,?,?)','Programasede');
 	}
 	
+	public function get_sede_por_programa($entidad){
+		$entidad->opcion = 6;
+        return $this->queryObjects($this->sp, $entidad);
+	}
 }

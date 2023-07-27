@@ -21,6 +21,7 @@ class Modelo{
 
 	public function crear($objeto){
 		$objeto->opcion=1;
+		
 		return $this->noQuery($this->sp,$objeto);
 	}
 
@@ -179,6 +180,7 @@ class Modelo{
 		try{
 
 			Conexion::callStoredProcedure($sp,$objeto);
+			
 			$respuesta=new Respuesta(true,null,null);
 		}catch(Exception $e){
 			$respuesta=new Respuesta(false,null,$e->getMessage());

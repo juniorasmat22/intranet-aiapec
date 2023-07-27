@@ -10,7 +10,7 @@ class Nivelp extends Entidad
 
 	public function setConsulta($filaConsulta){
 		$this->idNivelp=$this->obtenerColumna($filaConsulta,'id_nivelp');
-		$this->descripcionNivelp=$this->obtenerColumna($filaConsulta,'nivel_descripcionp');
+		$this->descripcionNivelp=$this->obtenerColumna($filaConsulta,'descripcion_nivelp');
 		
 	}
 	public function bindValues($statement){

@@ -28,7 +28,8 @@
   <link href="recursos/assets/css/app.min.css" rel="stylesheet" type="text/css" id="light-style">
   <link href="recursos/assets/css/app-dark.min.css" rel="stylesheet" type="text/css" id="dark-style">
 
-  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.18/dist/sweetalert2.all.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.18/dist/sweetalert2.min.css" rel="stylesheet">
   
   ?>
 </head>
@@ -106,7 +107,7 @@
             </li>
 
             <li class="side-nav-item">
-              <a href="?c=matricula" class="side-nav-link">
+              <a href="?c=matricula&a=matriculas" class="side-nav-link">
                 <i class="uil-calender"></i>
                 <span> Matrícula </span>
               </a>
@@ -642,11 +643,12 @@
   <!-- end demo js-->
 
   <!-- ajax -->
-  <script src="recursos/js/ajax.js"></script>
+
   <?php
 
 if($var=='estudiante'){
   echo '<script src="recursos/js/updated/updated.js"></script>';
+  echo '  <script src="recursos/js/ajax.js"></script>';
 }
 if($var=='seminario'){
   echo '<script src="recursos/js/simulacro/registro.js"></script>';
@@ -660,8 +662,9 @@ if ($var=='Matriculaseminario' || $var=='matricula') {
   echo '<script src="recursos/assets/js/pages/demo.datatable-init.js"></script>';
 }
 if ($var=='matricula') {
-
+  echo '<script src="recursos/js/matricula/ajax.js"></script>';
  echo '<script src="recursos/js/matricula/matricula.js"></script>';
+ 
 }
 ?>
 

@@ -22,8 +22,8 @@
                  Alerts are available for any length of text, as well as an optional dismiss
                  button.
              </p>
-             <form class="needs-validation" novalidate>
-
+             <form class="needs-validation" novalidate method="POST" action="?c=matricula&a=crear" id="formCrear">
+                  <input type="hidden" name="idEstudiante" value="<?php echo $_SESSION['idEstudiante']?>">
                  <div class="row">
                      <div class="col-md-4">
                          <div class="mb-3">
@@ -36,22 +36,16 @@
                                         $filas_programas = $lista_programas->resultado;
 
                                         foreach ($filas_programas as $programa) {
-
                                     ?>
-
                                          <option value="<?php echo $programa->idProgramasAcademia; ?>"><?php echo $programa->nombreProgramasAcademia; ?></option>
-
                                      <?php
                                         }
                                     } else {
                                         ?>
                                      <option disabled>No existen Programas Registradas</option>
-
-
                                  <?php
                                     }
                                     ?>
-
                              </select>
                              <div class="valid-feedback">
                                  Genial!
@@ -61,12 +55,11 @@
                              </div>
                          </div>
                      </div>
-                     <div class="col-md-4">
+                     <div class="col-md-4" id="niveles_programa">
                          <div class="mb-3">
                              <label class="form-label" for="programaNivel">Nivel</label>
                              <select required class="form-control select2" name="programaNivel" id="programaNivel" required data-toggle="select2">
                                  <option selected disabled value="">Seleccione una opción</option>
-
                              </select>
                              <div class="valid-feedback">
                                  Genial!
@@ -76,12 +69,11 @@
                              </div>
                          </div>
                      </div>
-                     <div class="col-md-4">
+                     <div class="col-md-4" id="sedes_programa">
                          <div class="mb-3">
                              <label class="form-label" for="programaSede">Sede</label>
                              <select required class="form-control select2" name="programaSede" id="programaSede" required data-toggle="select2">
                                  <option selected disabled>Seleccione una opción</option>
-
                              </select>
                              <div class="valid-feedback">
                                  Genia!
@@ -91,20 +83,18 @@
                              </div>
                          </div>
                      </div>
-
                  </div>
                  <div class="row">
                      <div class="col-md-4">
                          <div class="mb-3">
                              <label class="form-label" for="validationCustom01">Cuotas</label>
-                             <select class="form-control select2" data-toggle="select2" required>
+                             <select class="form-control select2" data-toggle="select2" required name="cuotasMatricula">
                                  <option disabled selected value="">Seleccione una opción</option>
                                  <option value="1">1 Cuota</option>
                                  <option value="2">2 Cuotas</option>
                                  <option value="3">3 Cuotas</option>
                                  <option value="4">4 Cuotas</option>
                              </select>
-
                              <div class="valid-feedback">
                                  Genial!
                              </div>
