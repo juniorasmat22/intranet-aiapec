@@ -26,9 +26,9 @@ class Matriculaseminario extends Entidad
         $this->fechaMatSeminario = $this->obtenerColumna($filaConsulta, 'fecha_mat_seminario');
         $this->montoPagoSeminario = $this->obtenerColumna($filaConsulta, 'monto_mat_seminario');
         $this->tipoPagoSeminario = $this->obtenerColumna($filaConsulta, 'tipo_pago_mat_seminario');
-        $this->operacion = $this->obtenerColumna($filaConsulta, 'operación');
+        $this->operacion = $this->obtenerColumna($filaConsulta, 'operacion');
         $this->recibo = $this->obtenerColumna($filaConsulta, 'recibo');
-        $this->estado = $this->obtenerColumna($filaConsulta, 'estado');      
+        $this->estado = $this->obtenerColumna($filaConsulta, 'estado');
     }
     public function bindValues($statement)
     {
@@ -49,13 +49,13 @@ class Matriculaseminario extends Entidad
 
     public function set($metodo)
     {
-        $this->idSeminario     = $metodo('idSeminario');
-        $this->idEstudiante      = $metodo('idEstudiante');
-        $this->idSeminario       = $metodo('idSeminario');
-        $this->fechaMatSeminario            = $metodo('fechaMatSeminario');
-        $this->montoPagoSeminario        = $metodo('montoPagoSeminario');
-        $this->tipoPagoSeminario            = $metodo('tipoPagoSeminario');
-        $this->operacion        = $metodo('operacion');
-        $this->recibo            = $metodo('recibo');
+        $this->idSeminario          = $metodo('idSeminario');
+        $this->idEstudiante         = $metodo('idEstudiante');
+        $this->idSeminario          = $metodo('idSeminario');
+        $this->fechaMatSeminario    = $metodo('fechaMatSeminario');
+        $this->montoPagoSeminario   = $metodo('montoPagoSeminario');
+        $this->tipoPagoSeminario    = $metodo('tipoPagoSeminario');
+        $this->operacion            = $metodo('operacion');
+        $this->recibo               = $metodo('recibo');
     }
 }

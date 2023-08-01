@@ -23,7 +23,7 @@ BEGIN
 
  -- crear
 	if opcion=1 then
-       INSERT INTO tbl_mat_seminario (id_estudiante, id_seminario, fecha_mat_seminario, monto_mat_seminario, tipo_pago_mat_seminario, operación, recibo, estado) 
+       INSERT INTO tbl_mat_seminario (id_estudiante, id_seminario, fecha_mat_seminario, monto_mat_seminario, tipo_pago_mat_seminario, operacion, recibo, estado) 
        VALUES(idEstudiante, idSeminario, CURRENT_TIMESTAMP(1),montoSeminario, tipoPago, operacion, recibo, estado);
 
    end if;
@@ -35,7 +35,7 @@ BEGIN
     id_seminario=idSeminario,
     monto_mat_seminario=montoSeminario,
     tipo_pago_mat_seminario=tipoPago,
-    operación=operacion, 
+    operacion=operacion, 
     recibo=recibo, 
     estado=estado
     WHERE id_mat_seminario=idMatSeminario;
