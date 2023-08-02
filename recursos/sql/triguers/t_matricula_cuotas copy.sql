@@ -19,13 +19,13 @@ BEGIN
                     WHILE contador <= cuotas DO
                     SET fecha_inicio= DATE_ADD(fecha_inicio, INTERVAL 30 DAY);
                         INSERT INTO tbl_cuota (nro_cuota, monto_cuota, tipo_cuota, descuento_cuota, estado_cuota, fecha_vencimiento_cuota, id_matricula,id_costo) VALUES
-                        (contador, costo_cuota, '1', 0, '1', fecha_inicio, NEW.id_matricula,1);
+                        (contador, costo_cuota, 'Matrícula', 0, '1', fecha_inicio, NEW.id_matricula,1);
                         SET contador = contador + 1;
                         
                     END WHILE;
 
                     INSERT INTO tbl_cuota (nro_cuota, monto_cuota, tipo_cuota, descuento_cuota, estado_cuota, fecha_vencimiento_cuota, id_matricula,id_costo) VALUES
-                        (1, 10.00, '1', 0, '1', '0000-00-00', NEW.id_matricula,2);
+                        (1, 10.00, 'Carnet', 0, '1', '0000-00-00', NEW.id_matricula,2);
            
                 SET contador = 1;
                 CASE
@@ -38,7 +38,7 @@ BEGIN
                 -- Insertar las cuotas para la matrícula recién creada
                     WHILE contador <= semanas DO
                         INSERT INTO tbl_cuota (nro_cuota, monto_cuota, tipo_cuota, descuento_cuota, estado_cuota, fecha_vencimiento_cuota, id_matricula,id_costo) VALUES
-                        (contador, 10, '2', 0, '1', '0000-00-00', NEW.id_matricula,3);
+                        (contador, 10, 'Simulacro', 0, '1', '0000-00-00', NEW.id_matricula,3);
                         SET contador = contador + 1;
                     END WHILE;
  

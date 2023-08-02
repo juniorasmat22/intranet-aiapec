@@ -112,7 +112,12 @@
                 <span> Matrícula </span>
               </a>
             </li>
-
+            <li class="side-nav-item">
+              <a href="?c=cuota" class="side-nav-link">
+                <i class="uil-rss"></i>
+                <span> Pagos </span>
+              </a>
+            </li>
             
             <li class="side-nav-item">
               <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
@@ -665,6 +670,9 @@ if ($var=='matricula') {
   echo '<script src="recursos/js/matricula/ajax.js"></script>';
  echo '<script src="recursos/js/matricula/matricula.js"></script>';
  
+}
+if ($var=='cuota') {
+  echo '<script src="recursos/js/pagos/registro_pago.js"></script>';
 }
 ?>
 

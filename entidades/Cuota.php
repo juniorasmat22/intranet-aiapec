@@ -1,7 +1,7 @@
 <?php
 namespace entidades;
 use PDO;
-class Costo extends Entidad
+class Cuota extends Entidad
 {
 	public $idCuota;
 	public $nroCuota;
@@ -10,7 +10,10 @@ class Costo extends Entidad
 	public $descuentoCuota;
 	public $estadoCuota;
 	public $fechaVencimientoCuota;
+	public $totalCuota;
 	public $idMatricula;
+	public $idCosto;
+
 
 
 
@@ -23,6 +26,8 @@ class Costo extends Entidad
 		$this->estadoCuota=$this->obtenerColumna($filaConsulta,'estado_cuota');
 		$this->fechaVencimientoCuota=$this->obtenerColumna($filaConsulta,'fecha_vencimiento_cuota');
 		$this->idMatricula=$this->obtenerColumna($filaConsulta,'id_matricula');
+		$this->idCosto=$this->obtenerColumna($filaConsulta,'id_costo');
+		$this->totalCuota=$this->obtenerColumna($filaConsulta,'total_cuota');
 		
 	}
 	public function bindValues($statement){
@@ -33,9 +38,11 @@ class Costo extends Entidad
 		$statement->bindValue(5,$this->descuentoCuota,PDO::PARAM_STR);
 		$statement->bindValue(6,$this->estadoCuota,PDO::PARAM_STR);
 		$statement->bindValue(7,date("Y-m-d", strtotime($this->fechaVencimientoCuota)), PDO::PARAM_STR);
-		$statement->bindValue(8,$this->idMatricula,PDO::PARAM_INT);
-		$statement->bindValue(9,$this->opcion,PDO::PARAM_INT);
-		$statement->bindValue(10,$this->pagina,PDO::PARAM_INT);
+		$statement->bindValue(8,$this->totalCuota,PDO::PARAM_STR);
+		$statement->bindValue(9,$this->idMatricula,PDO::PARAM_INT);
+		$statement->bindValue(10,$this->idCosto,PDO::PARAM_INT);
+		$statement->bindValue(11,$this->opcion,PDO::PARAM_INT);
+		$statement->bindValue(12,$this->pagina,PDO::PARAM_INT);
 
 		return $statement;
 	}
@@ -49,6 +56,8 @@ class Costo extends Entidad
 		$this->estadoCuota 	    = $metodo('estadoCuota');
 		$this->fechaVencimientoCuota 	    = $metodo('fechaVencimientoCuota');
 		$this->idMatricula 	    = $metodo('idMatricula');
+		$this->idCosto 	    	= $metodo('idCosto');
+		$this->totalCuota 	    	= $metodo('totalCuota');
 	}
 
 }

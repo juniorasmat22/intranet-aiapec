@@ -188,4 +188,14 @@ class Modelo{
 		return $respuesta;
 	}
 
+	protected function noQueryId($sp,$objeto){//llama al sp y devuelve una respuesta con el dato registrado
+		try{
+			$statement=Conexion::obtenerId($sp,$objeto);
+			$respuesta=new Respuesta(true,$statement,$statement);
+		}catch(Exception $e){
+			$respuesta=new Respuesta(false,null,$e->getMessage());
+		}
+		return $respuesta;
+	}
+
 }

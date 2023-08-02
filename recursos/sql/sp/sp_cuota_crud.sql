@@ -1,9 +1,9 @@
 USE db_academia_aiapaec ;
 DELIMITER $$
 
-DROP procedure if exists sp_costo_crud $$
+DROP procedure if exists sp_cuota_crud $$
 
-CREATE PROCEDURE sp_costo_crud(
+CREATE PROCEDURE sp_cuota_crud(
   idCuota int,
   nroCuota int,
   montoCuota decimal(10,2),
@@ -11,7 +11,9 @@ CREATE PROCEDURE sp_costo_crud(
   descuentoCuota decimal(10,2),
   estadoCuota varchar(1),
   fechaVencimientoCuota date,
+  totalCuota decimal(10,2),
   idMatricula int,
+  idCosto int,
   opcion int,
   pagina int
 )
@@ -21,8 +23,8 @@ BEGIN
 
   -- crear
 	if opcion=1 then
-		INSERT INTO tbl_cuota (nro_cuota, monto_cuota, tipo_cuota, descuento_cuota, estado_cuota, fecha_vencimiento_cuota, id_matricula) 
-        VALUES(nroCuota, montoCuota, tipoCuota, descuentoCuota, 1, fechaVencimientoCuota, idMatricula);
+		INSERT INTO tbl_cuota (nro_cuota, monto_cuota, tipo_cuota, descuento_cuota, estado_cuota, fecha_vencimiento_cuota,total_cuota, id_matricula,id_costo) 
+        VALUES(nroCuota, montoCuota, tipoCuota, descuentoCuota, 1, fechaVencimientoCuota,totalCuota, idMatricula,idCosto);
 
 
 
@@ -38,7 +40,8 @@ BEGIN
     descuento_cuota=descuentoCuota, 
     estado_cuota=estadoCuota, 
     fecha_vencimiento_cuota=fechaVencimientoCuota, 
-    id_matricula=idMatricula 
+    id_matricula=idMatricula ,
+    id_costo=idCosto
     WHERE id_cuota=idCuota;
 
   end if;
@@ -75,6 +78,10 @@ BEGIN
 		select * from tbl_cuota WHERE id_cuota=idCuota;
   end if;
  
+   -- GET Cuotas por matricula
+	if opcion=6 then
+		select * from tbl_cuota WHERE id_matricula=idMatricula and id_costo=idCosto;
+  end if;
 
 END $$
 DELIMITER ;

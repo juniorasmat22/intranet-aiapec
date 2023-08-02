@@ -6,7 +6,8 @@ class CuotaControlador extends Controlador
 
 	public function __construct()
 	{
-		parent::__construct('CuotaModelo','Cuota','');
+		parent::__construct('CuotaModelo','Cuota','vistas/cuota/index.php');
 	}
+	
 	
 }

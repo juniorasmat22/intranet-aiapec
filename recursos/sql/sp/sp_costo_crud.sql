@@ -67,5 +67,13 @@ BEGIN
   end if;
  
 
+ if opcion=6 then
+  -- el codigo del programa se envia en el campo tipo costo
+  select tc.* from tbl_tarifa tt 
+  inner join tbl_tarifa_costo ttc on tt.id_tarifa =ttc.id_tarifa
+  inner join tbl_costo tc on tc.id_costo =ttc.id_costo 
+  where tt.id_programas_academia =tipoCosto;
+ end if;
+
 END $$
 DELIMITER ;
