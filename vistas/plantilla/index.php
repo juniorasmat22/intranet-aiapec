@@ -394,7 +394,7 @@
                 </div>
 
                 <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                <a href="?c=estudiante&a=miPerfil" class="dropdown-item notify-item">
                   <i class="mdi mdi-account-circle me-1"></i>
                   <span>Mi Cuenta</span>
                 </a>

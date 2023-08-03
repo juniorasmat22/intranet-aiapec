@@ -28,6 +28,12 @@ class EstudianteControlador extends Controlador
 		$vista = $this->vista = 'vistas/estudiante/actualizar.php';
 		require 'vistas/plantilla/index.php';
 	}
+	public function miPerfil(){
+		$this->entidad->numerodocumentoEstudiante = $_SESSION['useranem'];
+		$estudiante = $this->modelo->get($this->entidad);
+		$vista = $this->vista = 'vistas/estudiante/perfil.php';
+		require 'vistas/plantilla/index.php';
+	}
 	public function actualizar()
 	{
 
