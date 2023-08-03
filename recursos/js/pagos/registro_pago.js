@@ -62,3 +62,12 @@ $(document).ready(function () {
   });
 
 });
+
+
+$('#primary-header-modal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget);
+  var id = button.data('id');
+  var nombre = button.data('nombre');
+  document.getElementById("idCuota").value=id;
+  document.getElementById("conceptoPago").value=nombre;
+});

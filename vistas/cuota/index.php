@@ -44,6 +44,7 @@ $mis_matriculas = $matricula->modelo->get_matriculas_por_estudiante($matricula->
                     <a class="text-dark" data-bs-toggle="collapse" href="#todayTasks<?php echo $fila->idMatricula; ?>" role="button" aria-expanded="false" aria-controls="todayTasks">
                         <i class='uil uil-angle-down font-18'></i><?php echo ($nivel_matricula->respuesta) ? $mi_programa->resultado->nombreProgramasAcademia . '-' . $nivel_matricula->resultado->descripcionNivelp : $mi_programa->resultado->nombreProgramasAcademia; ?> <span class="text-muted"> (<?php echo (count($costos_programa->resultado)); ?>)</span>
                     </a>
+              
                 </h5>
 
                 <div class="collapse show" id="todayTasks<?php echo $fila->idMatricula; ?>">
@@ -55,9 +56,10 @@ $mis_matriculas = $matricula->modelo->get_matriculas_por_estudiante($matricula->
                                 foreach ($costo_p as $costo) { ?>
                                     <div class="row justify-content-sm-between">
                                         <div class="col-sm-6 mb-2 mb-sm-0">
-                                            <h3> <button type="button" class="btn btn-sm btn-primary">
+                                            <h3> <button type="button" class="btn btn-sm btn-primary"  >
                                                     <?php echo $costo->nombreCosto; ?>
-                                                </button></h3>
+                                                </button>
+                                                </h3>
                                         </div> <!-- end col -->
                                     </div>
                                     <br>
@@ -68,9 +70,10 @@ $mis_matriculas = $matricula->modelo->get_matriculas_por_estudiante($matricula->
                                     $miscuotas = $cuota->modelo->get_cuota_por_matricula($cuota->entidad);
                                     ?>
                                     <!-- end task -->
-                                    <table class="table table-centered mb-0">
+                                    <table class="table table-centered mb-0" id="tabla_cuotas">
                                         <thead class="table-dark">
                                             <tr>
+                                                <th>Id</th>
                                                 <th><?php echo ($costo->nombreCosto == 'Simulacros') ? 'Semana' : 'Cuota';  ?></th>
                                                 <th>Monto</th>
                                                 <?php if ($costo->nombreCosto == 'Matrícula') { ?>
@@ -85,6 +88,7 @@ $mis_matriculas = $matricula->modelo->get_matriculas_por_estudiante($matricula->
                                                 $mis_cuotas_programa = $miscuotas->resultado;
                                                 foreach ($mis_cuotas_programa as $micuota) { ?>
                                                     <tr>
+                                                        <td><?php echo $micuota->idCuota;  ?></td>
                                                         <td><?php echo $micuota->nroCuota;  ?></td>
                                                         <td><?php echo "S/.  " . number_format($micuota->totalCuota, 2);;  ?></td>
                                                         <?php if ($costo->nombreCosto == 'Matrícula') { ?>
@@ -100,13 +104,16 @@ $mis_matriculas = $matricula->modelo->get_matriculas_por_estudiante($matricula->
                                                                 case '2': ?>
                                                                     <i class="mdi mdi-circle text-success"></i> Cancelado
                                                                 <?php break;
+                                                                case '4': ?>
+                                                                    <i class="mdi mdi-circle text-info"></i> Validando Pago
+                                                                <?php break;
                                                                 default: ?>
                                                                     <i class="mdi mdi-circle text-danger"></i> Vencido
                                                             <?php break;
                                                             } ?>
                                                         </td>
                                                         <td>
-                                                            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#primary-header-modal"><i class="uil-money-withdrawal"></i> Cancelar</button>
+                                                            <button type="button" class="btn btn-outline-success" id="btn-ver-detalles" data-bs-toggle="modal" data-bs-target="#primary-header-modal" data-id="<?php echo $micuota->idCuota;  ?>" data-codigo="<?php echo $costo->idCosto;  ?>" data-nombre="<?php echo $costo->nombreCosto;  ?>"><i class="uil-money-withdrawal"></i> Cancelar</button>
                                                         </td>
                                                     </tr>
                                                 <?php
@@ -160,7 +167,9 @@ $mis_matriculas = $matricula->modelo->get_matriculas_por_estudiante($matricula->
             </div>
             <div class="modal-body">
                 <form class="needs-validation" novalidate action="?c=pago&a=crearPago" method="post" id="formCrearPago" enctype="multipart/form-data">
-                    <input type="text" value="<?php echo $_SESSION['idEstudiante'] ?>" name="idEstudiante">    
+               <input type="hidden" id="idCuota" name="idCuota">
+               <input type="hidden" id="conceptoPago" name="conceptoPago">
+                <input type="hidden" value="<?php echo $_SESSION['idEstudiante'] ?>" name="idEstudiante">    
                 <div class="position-relative mb-3">
                         <label class="form-label" for="montoPago">Monto Cancelado</label>
                         <input type="number" step="any" class="form-control" name="montoPago" placeholder="Monto Pagado" required>
@@ -215,3 +224,4 @@ $mis_matriculas = $matricula->modelo->get_matriculas_por_estudiante($matricula->
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+

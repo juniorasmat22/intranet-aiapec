@@ -23,6 +23,7 @@ BEGIN
 	if opcion=1 then
 		INSERT INTO tbl_pago (tipo_pago, operacion_pago, total_pago, recibo_pago, estado_pago, fecha_pago, id_estudiante) VALUES
         (tipoPago, operacionPago, totalPago, reciboPago, estadoPago, CURRENT_TIMESTAMP(1), idEstudiante);
+        select last_insert_id() as ID; 
 
    end if;
 

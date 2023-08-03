@@ -190,8 +190,10 @@ class Modelo{
 
 	protected function noQueryId($sp,$objeto){//llama al sp y devuelve una respuesta con el dato registrado
 		try{
-			$statement=Conexion::obtenerId($sp,$objeto);
-			$respuesta=new Respuesta(true,$statement,$statement);
+			$statement=Conexion::callStoredProcedure($sp,$objeto);
+			$filas=$statement->fetchAll(PDO::FETCH_ASSOC);
+			//$filas=array_change_key_case($filas);
+			$respuesta=new Respuesta(true,$filas,null);
 		}catch(Exception $e){
 			$respuesta=new Respuesta(false,null,$e->getMessage());
 		}

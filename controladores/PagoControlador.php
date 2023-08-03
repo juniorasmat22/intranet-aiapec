@@ -1,6 +1,8 @@
 <?php
 namespace controladores;
 
+use nucleo\Respuesta;
+
 class PagoControlador extends Controlador
 {
 
@@ -48,6 +50,17 @@ class PagoControlador extends Controlador
 
         $this->entidad->setMetodoPost();
         $respuesta=$this->modelo->crear_pago($this->entidad);
-        $this->respuesta($respuesta);
+		if ($respuesta->resultado) {
+			$detalle= new DetallepagoControlador();
+			$detalle->entidad->setMetodoPost();
+			$detalle->entidad->idPago=$respuesta->resultado['0']['ID'];
+			$respuesta2=$detalle->modelo->crear($detalle->entidad);
+			$this->respuesta($respuesta2);
+		} else {
+			$respuesta=new Respuesta(false,null,'Hubo un error al registrar el pago');
+			$this->respuesta($respuesta);
+		}
+		
+        
 	}
 }

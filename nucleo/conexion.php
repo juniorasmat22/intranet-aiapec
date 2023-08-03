@@ -31,30 +31,4 @@ class Conexion
 		$statement->execute();
 		return $statement;
 	}
-
-	public static function obtenerId($sp, $entidad)
-	{
-		$con = Conexion::getConexion();
-		$statement = $con->prepare($sp);
-		$statement = $entidad->bindValues($statement);
-		try {
-
-			$con->beginTransaction();
-
-			$statement->execute();
-
-			$con->commit();
-
-			$id_insertado = $con->lastInsertId();
-		} catch (PDOException $e) {
-
-			$con->rollback();
-
-			$id_insertado = 0;
-		}
-
-		// Cerrar la conexión
-		$con = null;
-		return $id_insertado;
-	}
 }
