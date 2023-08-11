@@ -39,7 +39,7 @@ class Matriculaseminario extends Entidad
         $statement->bindValue(5, $this->montoPagoSeminario, PDO::PARAM_STR);
         $statement->bindValue(6, $this->tipoPagoSeminario, PDO::PARAM_STR);
         $statement->bindValue(7, $this->operacion, PDO::PARAM_STR);
-        $statement->bindValue(8, $this->recibo, PDO::PARAM_STR);
+        $statement->bindValue(8, $this->recibo, PDO::PARAM_LOB);
         $statement->bindValue(9, $this->estado, PDO::PARAM_STR);
         $statement->bindValue(10, $this->opcion, PDO::PARAM_INT);
         $statement->bindValue(11, $this->pagina, PDO::PARAM_INT);

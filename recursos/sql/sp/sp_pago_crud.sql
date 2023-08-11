@@ -8,7 +8,7 @@ CREATE PROCEDURE sp_pago_crud(
     tipoPago varchar(45),
     operacionPago varchar(45),
     totalPago decimal(10,2),
-    reciboPago varchar(45),
+    reciboPago LONGBLOB,
     estadoPago varchar(45),
     fechaPago date,
     idEstudiante int,

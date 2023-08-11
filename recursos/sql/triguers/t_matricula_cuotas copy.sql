@@ -18,14 +18,14 @@ BEGIN
                 -- Insertar las cuotas para la matrícula recién creada
                     WHILE contador <= cuotas DO
                     SET fecha_inicio= DATE_ADD(fecha_inicio, INTERVAL 30 DAY);
-                        INSERT INTO tbl_cuota (nro_cuota, monto_cuota, tipo_cuota, descuento_cuota, estado_cuota, fecha_vencimiento_cuota, id_matricula,id_costo) VALUES
-                        (contador, costo_cuota, 'Matrícula', 0, '1', fecha_inicio, NEW.id_matricula,1);
+                        INSERT INTO tbl_cuota (nro_cuota, monto_cuota, tipo_cuota, descuento_cuota, estado_cuota, fecha_vencimiento_cuota,total_cuota, id_matricula,id_costo) VALUES
+                        (contador, costo_cuota, 'Matrícula', 0, '1', fecha_inicio, costo_cuota,NEW.id_matricula,1);
                         SET contador = contador + 1;
                         
                     END WHILE;
 
-                    INSERT INTO tbl_cuota (nro_cuota, monto_cuota, tipo_cuota, descuento_cuota, estado_cuota, fecha_vencimiento_cuota, id_matricula,id_costo) VALUES
-                        (1, 10.00, 'Carnet', 0, '1', '0000-00-00', NEW.id_matricula,2);
+                    INSERT INTO tbl_cuota (nro_cuota, monto_cuota, tipo_cuota, descuento_cuota, estado_cuota, fecha_vencimiento_cuota,total_cuota, id_matricula,id_costo) VALUES
+                        (1, 10.00, 'Carnet', 0, '1', '0000-00-00',10.00, NEW.id_matricula,2);
            
                 SET contador = 1;
                 CASE
@@ -37,8 +37,8 @@ BEGIN
                 
                 -- Insertar las cuotas para la matrícula recién creada
                     WHILE contador <= semanas DO
-                        INSERT INTO tbl_cuota (nro_cuota, monto_cuota, tipo_cuota, descuento_cuota, estado_cuota, fecha_vencimiento_cuota, id_matricula,id_costo) VALUES
-                        (contador, 10, 'Simulacro', 0, '1', '0000-00-00', NEW.id_matricula,3);
+                        INSERT INTO tbl_cuota (nro_cuota, monto_cuota, tipo_cuota, descuento_cuota, estado_cuota, fecha_vencimiento_cuota, total_cuota ,id_matricula,id_costo) VALUES
+                        (contador, 10.00, 'Simulacro', 0, '1', '0000-00-00',10.00, NEW.id_matricula,3);
                         SET contador = contador + 1;
                     END WHILE;
  

@@ -33,8 +33,7 @@ $mi_seminario = new SeminarioControlador();
                     <td><?php echo $fila->tipoPagoSeminario ?></td>
                     <td><?php echo $fila->operacion ?></td>
                     <td>
-                        <img src="recursos/pagos/seminarios/<?php echo $fila->recibo ?>" alt="recibo-img" title="recibo-img" class="rounded me-3" height="30">
-
+                        <img  src="data:image/jpg;base64,<?php echo base64_encode($fila->recibo);?> " class="img-fluid avatar-lg"  alt="recibo-img" title="recibo-img"  height="30">
                     </td>
                     <td><span class="badge <?php echo ($fila->estado == 0) ? "bg-warning" : "bg-success"; ?> "><?php echo ($fila->estado == 0) ? "Pendiente" : "Aprobada"; ?></span></td>
                     <td><?php echo date("d/m/Y h:i:s A", strtotime($fila->fechaMatSeminario)) ?></td>

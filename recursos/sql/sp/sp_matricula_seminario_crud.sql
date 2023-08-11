@@ -11,7 +11,7 @@ CREATE PROCEDURE sp_matricula_seminario_crud(
   montoSeminario decimal(10,2),
   tipoPago varchar(45),
   operacion varchar(45),
-  recibo varchar(45),
+  recibo LONGBLOB,
   estado int,
   opcion int,
   pagina int

@@ -73,7 +73,7 @@ $mis_matriculas = $matricula->modelo->get_matriculas_por_estudiante($matricula->
                                     <table class="table table-centered mb-0" id="tabla_cuotas">
                                         <thead class="table-dark">
                                             <tr>
-                                                <th>Id</th>
+                                                <!-- <th>Id</th> -->
                                                 <th><?php echo ($costo->nombreCosto == 'Simulacros') ? 'Semana' : 'Cuota';  ?></th>
                                                 <th>Monto</th>
                                                 <?php if ($costo->nombreCosto == 'Matrícula') { ?>
@@ -88,7 +88,7 @@ $mis_matriculas = $matricula->modelo->get_matriculas_por_estudiante($matricula->
                                                 $mis_cuotas_programa = $miscuotas->resultado;
                                                 foreach ($mis_cuotas_programa as $micuota) { ?>
                                                     <tr>
-                                                        <td><?php echo $micuota->idCuota;  ?></td>
+                                                        <!-- <td><?php //echo $micuota->idCuota;  ?></td> -->
                                                         <td><?php echo $micuota->nroCuota;  ?></td>
                                                         <td><?php echo "S/.  " . number_format($micuota->totalCuota, 2);;  ?></td>
                                                         <?php if ($costo->nombreCosto == 'Matrícula') { ?>

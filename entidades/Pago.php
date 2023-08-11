@@ -31,7 +31,7 @@ class Pago extends Entidad
 		$statement->bindValue(2,$this->tipoPago,PDO::PARAM_INT);
 		$statement->bindValue(3,$this->operacionPago,PDO::PARAM_STR);
 		$statement->bindValue(4,$this->totalPago,PDO::PARAM_STR);
-		$statement->bindValue(5,$this->reciboPago,PDO::PARAM_STR);
+		$statement->bindValue(5,$this->reciboPago,PDO::PARAM_LOB);
 		$statement->bindValue(6,$this->estadoPago,PDO::PARAM_STR);
 		$statement->bindValue(7,date("Y-m-d H:i:s", strtotime($this->fechaPago)), PDO::PARAM_STR);
         $statement->bindValue(8,$this->idEstudiante,PDO::PARAM_INT);
