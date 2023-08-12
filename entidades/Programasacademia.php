@@ -11,6 +11,7 @@ class Programasacademia extends Entidad
 	public $estadoProgramasAcademia;
 	public $portadaPrograma;
 	public $descripcionPrograma;
+	public $precioCuotasPrograma;
 
 
 	public function setConsulta($filaConsulta){
@@ -22,6 +23,7 @@ class Programasacademia extends Entidad
         $this->estadoProgramasAcademia=$this->obtenerColumna($filaConsulta,'estado_programas_academia');
         $this->portadaPrograma=$this->obtenerColumna($filaConsulta,'portada_programa');
         $this->descripcionPrograma=$this->obtenerColumna($filaConsulta,'descripcion_programa');
+		$this->precioCuotasPrograma=$this->obtenerColumna($filaConsulta,'precio_cuotas_programa');
 	}
 	
 	public function bindValues($statement){
@@ -33,8 +35,9 @@ class Programasacademia extends Entidad
 		$statement->bindValue(6,$this->estadoProgramasAcademia,PDO::PARAM_INT);
 		$statement->bindValue(7,$this->portadaPrograma,PDO::PARAM_STR);
 		$statement->bindValue(8,$this->descripcionPrograma,PDO::PARAM_STR);
-		$statement->bindValue(9,$this->opcion,PDO::PARAM_INT);
-		$statement->bindValue(10,$this->pagina,PDO::PARAM_INT);
+		$statement->bindValue(9,$this->precioCuotasPrograma,PDO::PARAM_STR);
+		$statement->bindValue(10,$this->opcion,PDO::PARAM_INT);
+		$statement->bindValue(11,$this->pagina,PDO::PARAM_INT);
 
 		return $statement;
 	}
@@ -48,5 +51,6 @@ class Programasacademia extends Entidad
 		$this->estadoProgramasAcademia      = $metodo('estadoProgramasAcademia');
 		$this->portadaPrograma      		= $metodo('portadaPrograma');
 		$this->descripcionPrograma      	= $metodo('descripcionPrograma');
+		$this->precioCuotasPrograma      	= $metodo('precioCuotasPrograma');
 	}
 }

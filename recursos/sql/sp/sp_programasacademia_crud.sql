@@ -13,6 +13,7 @@ CREATE PROCEDURE sp_programasacademia_crud(
   estadoProgramasAcademia int,
   portadaPrograma varchar(45),
   descripcionPrograma varchar(45),
+  precioCuotasPrograma decimal(10,2),
   opcion int,
   pagina int
 )
@@ -22,8 +23,8 @@ BEGIN
 
   -- crear
 	if opcion=1 then
-        INSERT INTO tbl_programas_academia (nombre_programa_academia, tipo_programa_academia, precio_programa_academia, id_semestre, estado_programas_academia,portada_programa,descripcion_programa) 
-        VALUES(nombreProgramasAcademia, tipoProgramasAcademia, precioProgramasAcademia, idSemestre,estadoProgramasAcademia,portadaPrograma,descripcionPrograma);
+        INSERT INTO tbl_programas_academia (nombre_programa_academia, tipo_programa_academia, precio_programa_academia, id_semestre, estado_programas_academia,portada_programa,descripcion_programa,precio_cuotas_programa) 
+        VALUES(nombreProgramasAcademia, tipoProgramasAcademia, precioProgramasAcademia, idSemestre,estadoProgramasAcademia,portadaPrograma,descripcionPrograma,precioCuotasPrograma);
 
    end if;
 
@@ -36,7 +37,8 @@ BEGIN
     id_semestre=idSemestre, 
     estado_programas_academia=estadoProgramasAcademia,
     portada_programa=portadaPrograma,
-    descripcion_programa=descripcionPrograma
+    descripcion_programa=descripcionPrograma,
+    precio_cuotas_programa=precioCuotasPrograma
     WHERE id_programas_academia=idProgramasAcademia;
 
   end if;
@@ -53,8 +55,7 @@ BEGIN
 		set limiteInferior=(pagina-1)*registrosPagina;
 
 		select * from tbl_programas_academia  where
-      (nombre_programa_academia like concat('%',nombreProgramasAcademia,'%') or nombreProgramasAcademia is null ) 
-    limit limiteInferior,registrosPagina;
+      (nombre_programa_academia like concat('%',nombreProgramasAcademia,'%') or nombreProgramasAcademia is null ) ;
 
   -- numero de paginas
     select
@@ -64,7 +65,6 @@ BEGIN
             end as paginas
             from tbl_programas_academia where
             (nombre_programa_academia like concat('%',nombreProgramasAcademia,'%') or nombreProgramasAcademia is null )  ;
-
         end if;
   -- get
 	if opcion=5 then
