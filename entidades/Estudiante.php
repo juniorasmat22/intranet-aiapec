@@ -47,6 +47,8 @@ class Estudiante extends Entidad
 	public $datosUpdated;
 	public $sedeColegio;
 	public $seccionColegio;
+	public $correoCorporativo;
+	public $passworCorporativo;
 	public function setConsulta($filaConsulta)
 	{
 		$this->idEstudiante = $this->obtenerColumna($filaConsulta, 'id_estudiante');
@@ -74,6 +76,10 @@ class Estudiante extends Entidad
 		$this->tycEstudiante = $this->obtenerColumna($filaConsulta, 'tyc_estudiante');
 		$this->sexoEstudiante = $this->obtenerColumna($filaConsulta, 'sexo_estudiante');
 		$this->datosUpdated = $this->obtenerColumna($filaConsulta, 'datos_updated');
+		$this->correoCorporativo = $this->obtenerColumna($filaConsulta, 'correo_corporativo_estudiante');
+		$this->passworCorporativo = $this->obtenerColumna($filaConsulta, 'password_corporativo_estudiante');
+		$this->colegioEscolar = $this->obtenerColumna($filaConsulta, 'colegio_escolar');
+		$this->sedeColegio = $this->obtenerColumna($filaConsulta, 'sede_colegio');
 	
 	}
 	public function bindValues($statement)
@@ -106,8 +112,11 @@ class Estudiante extends Entidad
 		$statement->bindValue(22, $this->sexoEstudiante, PDO::PARAM_STR);
 		$statement->bindValue(23, $this->datosUpdated, PDO::PARAM_STR);
 		// $statement->bindValue(24, $this->passEstudiante, PDO::PARAM_STR);
-		$statement->bindValue(24, $this->opcion, PDO::PARAM_INT);
-		$statement->bindValue(25, $this->pagina, PDO::PARAM_INT);
+		
+		$statement->bindValue(24, $this->correoCorporativo, PDO::PARAM_STR);
+		$statement->bindValue(25, $this->passworCorporativo, PDO::PARAM_STR);
+		$statement->bindValue(26, $this->opcion, PDO::PARAM_INT);
+		$statement->bindValue(27, $this->pagina, PDO::PARAM_INT);
 		return $statement;
 	}
 
@@ -140,5 +149,7 @@ class Estudiante extends Entidad
 		$this->situacionEstudiante			= $metodo('situacionEstudiante');
 		$this->tycEstudiante				= $metodo('tycEstudiante');
 		$this->sexoEstudiante				= $metodo('sexoEstudiante');
+		$this->correoCorporativo			= $metodo('correoCorporativo');
+		$this->passworCorporativo			= $metodo('passworCorporativo');
 	}
 }

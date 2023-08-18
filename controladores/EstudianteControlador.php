@@ -22,7 +22,6 @@ class EstudianteControlador extends Controlador
 	}
 	public function updated()
 	{
-
 		$this->entidad->numerodocumentoEstudiante = $_SESSION['useranem'];
 		$estudiante = $this->modelo->get($this->entidad);
 		$vista = $this->vista = 'vistas/estudiante/actualizar.php';
