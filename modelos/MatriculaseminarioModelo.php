@@ -14,4 +14,9 @@ class MatriculaseminarioModelo extends Modelo
         $entidad->opcion = 6;
         return $this->queryObjects($this->sp, $entidad);
     }
+    public function get_matricula_por_seminario_estudiante($entidad)
+    {
+        $entidad->opcion = 8;
+        return $this->queryObjeto($this->sp, $entidad);
+    }
 }

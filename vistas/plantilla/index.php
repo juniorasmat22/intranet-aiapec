@@ -86,7 +86,7 @@
             <li class="side-nav-title side-nav-item">Opciones</li>
             <li class="side-nav-item">
               <a data-bs-toggle="collapse" href="#sidebarProgramas" aria-expanded="false" aria-controls="sidebarProgramas" class="side-nav-link">
-                <i class="uil-home-alt"></i>
+                <i class="uil-tv-retro"></i>
                 <!-- <span class="badge bg-success float-end">1</span> -->
                 
                 <span> Programas </span>
@@ -108,20 +108,20 @@
 
             <li class="side-nav-item">
               <a href="?c=matricula&a=matriculas" class="side-nav-link">
-                <i class="uil-calender"></i>
+                <i class="uil-graduation-hat"></i>
                 <span> Matrícula </span>
               </a>
             </li>
             <li class="side-nav-item">
               <a href="?c=cuota" class="side-nav-link">
-                <i class="uil-rss"></i>
+                <i class="uil-atm-card"></i>
                 <span> Pagos </span>
               </a>
             </li>
             
             <li class="side-nav-item">
               <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
-                <i class="uil-home-alt"></i>
+                <i class="uil-podium"></i>
                 <!-- <span class="badge bg-success float-end">1</span> -->
                 <span> Seminarios </span>
                 <span class="menu-arrow"></span>
@@ -141,7 +141,7 @@
 
             <li class="side-nav-item">
               <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
-                <i class="uil-store"></i>
+                <i class="uil-medal"></i>
                 <span> Notas </span>
                 <span class="menu-arrow"></span>
               </a>
@@ -161,13 +161,13 @@
             </li>
             <li class="side-nav-item">
               <a href="apps-social-feed.html" class="side-nav-link">
-                <i class="uil-rss"></i>
+                <i class="uil-graph-bar"></i>
                 <span> Asistencia </span>
               </a>
             </li>
             <li class="side-nav-item">
               <a data-bs-toggle="collapse" href="#sidebarEmail" aria-expanded="false" aria-controls="sidebarEmail" class="side-nav-link">
-                <i class="uil-envelope"></i>
+                <i class="uil-books"></i>
                 <span> Biblioteca </span>
                 <span class="menu-arrow"></span>
               </a>
@@ -218,162 +218,6 @@
             <li class="dropdown notification-list d-lg-none">
               <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                 <i class="dripicons-search noti-icon"></i>
-              </a>
-              <div class="dropdown-menu dropdown-menu-animated dropdown-lg p-0">
-                <form class="p-3">
-                  <input type="text" class="form-control" placeholder="Buscar ..." aria-label="Recipient's username">
-                </form>
-              </div>
-            </li>
-
-
-            <li class="dropdown notification-list">
-              <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                <i class="dripicons-bell noti-icon"></i>
-                <span class="noti-icon-badge"></span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg">
-
-                <!-- item-->
-                <div class="dropdown-item noti-title">
-                  <h5 class="m-0">
-                    <span class="float-end">
-                      <a href="javascript: void(0);" class="text-dark">
-                        <small>Clear All</small>
-                      </a>
-                    </span>Notification
-                  </h5>
-                </div>
-
-                <div style="max-height: 230px;" data-simplebar="">
-                  <!-- item-->
-                  <a href="javascript:void(0);" class="dropdown-item notify-item">
-                    <div class="notify-icon bg-primary">
-                      <i class="mdi mdi-comment-account-outline"></i>
-                    </div>
-                    <p class="notify-details">Caleb Flakelar commented on Admin
-                      <small class="text-muted">1 min ago</small>
-                    </p>
-                  </a>
-
-                  <!-- item-->
-                  <a href="javascript:void(0);" class="dropdown-item notify-item">
-                    <div class="notify-icon bg-info">
-                      <i class="mdi mdi-account-plus"></i>
-                    </div>
-                    <p class="notify-details">New user registered.
-                      <small class="text-muted">5 hours ago</small>
-                    </p>
-                  </a>
-
-                  <!-- item-->
-                  <a href="javascript:void(0);" class="dropdown-item notify-item">
-                    <div class="notify-icon">
-                      <img src="recursos/assets/images/users/avatar-2.jpg" class="img-fluid rounded-circle" alt="">
-                    </div>
-                    <p class="notify-details">Cristina Pride</p>
-                    <p class="text-muted mb-0 user-msg">
-                      <small>Hi, How are you? What about our next meeting</small>
-                    </p>
-                  </a>
-
-                  <!-- item-->
-                  <a href="javascript:void(0);" class="dropdown-item notify-item">
-                    <div class="notify-icon bg-primary">
-                      <i class="mdi mdi-comment-account-outline"></i>
-                    </div>
-                    <p class="notify-details">Caleb Flakelar commented on Admin
-                      <small class="text-muted">4 days ago</small>
-                    </p>
-                  </a>
-
-                  <!-- item-->
-                  <a href="javascript:void(0);" class="dropdown-item notify-item">
-                    <div class="notify-icon">
-                      <img src="recursos/assets/images/users/avatar-4.jpg" class="img-fluid rounded-circle" alt="">
-                    </div>
-                    <p class="notify-details">Karen Robinson</p>
-                    <p class="text-muted mb-0 user-msg">
-                      <small>Wow ! this admin looks good and awesome design</small>
-                    </p>
-                  </a>
-
-                  <!-- item-->
-                  <a href="javascript:void(0);" class="dropdown-item notify-item">
-                    <div class="notify-icon bg-info">
-                      <i class="mdi mdi-heart"></i>
-                    </div>
-                    <p class="notify-details">Carlos Crouch liked
-                      <b>Admin</b>
-                      <small class="text-muted">13 days ago</small>
-                    </p>
-                  </a>
-                </div>
-
-                <!-- All-->
-                <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
-                  View All
-                </a>
-
-              </div>
-            </li>
-
-            <li class="dropdown notification-list d-none d-sm-inline-block">
-              <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                <i class="dripicons-view-apps noti-icon"></i>
-              </a>
-              <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg p-0">
-
-                <div class="p-2">
-                  <div class="row g-0">
-                    <div class="col">
-                      <a class="dropdown-icon-item" href="#">
-                        <img src="recursos/assets/images/brands/slack.png" alt="slack">
-                        <span>Slack</span>
-                      </a>
-                    </div>
-                    <div class="col">
-                      <a class="dropdown-icon-item" href="#">
-                        <img src="recursos/assets/images/brands/github.png" alt="Github">
-                        <span>GitHub</span>
-                      </a>
-                    </div>
-                    <div class="col">
-                      <a class="dropdown-icon-item" href="#">
-                        <img src="recursos/assets/images/brands/dribbble.png" alt="dribbble">
-                        <span>Dribbble</span>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div class="row g-0">
-                    <div class="col">
-                      <a class="dropdown-icon-item" href="#">
-                        <img src="recursos/assets/images/brands/bitbucket.png" alt="bitbucket">
-                        <span>Bitbucket</span>
-                      </a>
-                    </div>
-                    <div class="col">
-                      <a class="dropdown-icon-item" href="#">
-                        <img src="recursos/assets/images/brands/dropbox.png" alt="dropbox">
-                        <span>Dropbox</span>
-                      </a>
-                    </div>
-                    <div class="col">
-                      <a class="dropdown-icon-item" href="#">
-                        <img src="recursos/assets/images/brands/g-suite.png" alt="G Suite">
-                        <span>G Suite</span>
-                      </a>
-                    </div>
-                  </div> <!-- end row-->
-                </div>
-
-              </div>
-            </li>
-
-            <li class="notification-list">
-              <a class="nav-link end-bar-toggle" href="javascript: void(0);">
-                <i class="dripicons-gear noti-icon"></i>
               </a>
             </li>
 
@@ -429,69 +273,7 @@
           <button class="button-menu-mobile open-left">
             <i class="mdi mdi-menu"></i>
           </button>
-          <div class="app-search dropdown d-none d-lg-block">
-            <form>
-              <div class="input-group">
-                <input type="text" class="form-control dropdown-toggle" placeholder="Buscar..." id="top-search">
-                <span class="mdi mdi-magnify search-icon"></span>
-                <button class="input-group-text btn-guinda" type="submit">Buscar</button>
-              </div>
-            </form>
-
-            <div class="dropdown-menu dropdown-menu-animated dropdown-lg" id="search-dropdown">
-              <!-- item-->
-              <div class="dropdown-header noti-title">
-                <h5 class="text-overflow mb-2">Found <span class="text-danger">17</span> results</h5>
-              </div>
-
-              <!-- item-->
-              <a href="javascript:void(0);" class="dropdown-item notify-item">
-                <i class="uil-notes font-16 me-1"></i>
-                <span>Analytics Report</span>
-              </a>
-
-              <!-- item-->
-              <a href="javascript:void(0);" class="dropdown-item notify-item">
-                <i class="uil-life-ring font-16 me-1"></i>
-                <span>How can I help you?</span>
-              </a>
-
-              <!-- item-->
-              <a href="javascript:void(0);" class="dropdown-item notify-item">
-                <i class="uil-cog font-16 me-1"></i>
-                <span>User profile settings</span>
-              </a>
-
-              <!-- item-->
-              <div class="dropdown-header noti-title">
-                <h6 class="text-overflow mb-2 text-uppercase">Users</h6>
-              </div>
-
-              <div class="notification-list">
-                <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                  <div class="d-flex">
-                    <img class="d-flex me-2 rounded-circle" src="recursos/assets/images/users/avatar-2.jpg" alt="Generic placeholder image" height="32">
-                    <div class="w-100">
-                      <h5 class="m-0 font-14">Erwin Brown</h5>
-                      <span class="font-12 mb-0">UI Designer</span>
-                    </div>
-                  </div>
-                </a>
-
-                <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                  <div class="d-flex">
-                    <img class="d-flex me-2 rounded-circle" src="recursos/assets/images/users/avatar-5.jpg" alt="Generic placeholder image" height="32">
-                    <div class="w-100">
-                      <h5 class="m-0 font-14">Jacob Deo</h5>
-                      <span class="font-12 mb-0">Developer</span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
+          
         </div>
         <!-- end Topbar -->
 
@@ -538,94 +320,7 @@
   <!-- END wrapper -->
 
 
-  <!-- Right Sidebar -->
-  <div class="end-bar">
-
-    <div class="rightbar-title">
-      <a href="javascript:void(0);" class="end-bar-toggle float-end">
-        <i class="dripicons-cross noti-icon"></i>
-      </a>
-      <h5 class="m-0">Settings</h5>
-    </div>
-
-    <div class="rightbar-content h-100" data-simplebar="">
-
-      <div class="p-3">
-        <div class="alert alert-warning" role="alert">
-          <strong>Customize </strong> the overall color scheme, sidebar menu, etc.
-        </div>
-
-        <!-- Settings -->
-        <h5 class="mt-3">Color Scheme</h5>
-        <hr class="mt-1">
-
-        <div class="form-check form-switch mb-1">
-          <input class="form-check-input" type="checkbox" name="color-scheme-mode" value="light" id="light-mode-check" checked="">
-          <label class="form-check-label" for="light-mode-check">Light Mode</label>
-        </div>
-
-        <div class="form-check form-switch mb-1">
-          <input class="form-check-input" type="checkbox" name="color-scheme-mode" value="dark" id="dark-mode-check">
-          <label class="form-check-label" for="dark-mode-check">Dark Mode</label>
-        </div>
-
-
-        <!-- Width -->
-        <h5 class="mt-4">Width</h5>
-        <hr class="mt-1">
-        <div class="form-check form-switch mb-1">
-          <input class="form-check-input" type="checkbox" name="width" value="fluid" id="fluid-check" checked="">
-          <label class="form-check-label" for="fluid-check">Fluid</label>
-        </div>
-
-        <div class="form-check form-switch mb-1">
-          <input class="form-check-input" type="checkbox" name="width" value="boxed" id="boxed-check">
-          <label class="form-check-label" for="boxed-check">Boxed</label>
-        </div>
-
-
-        <!-- Left Sidebar-->
-        <h5 class="mt-4">Left Sidebar</h5>
-        <hr class="mt-1">
-        <div class="form-check form-switch mb-1">
-          <input class="form-check-input" type="checkbox" name="theme" value="default" id="default-check">
-          <label class="form-check-label" for="default-check">Default</label>
-        </div>
-
-        <div class="form-check form-switch mb-1">
-          <input class="form-check-input" type="checkbox" name="theme" value="light" id="light-check" checked="">
-          <label class="form-check-label" for="light-check">Light</label>
-        </div>
-
-        <div class="form-check form-switch mb-3">
-          <input class="form-check-input" type="checkbox" name="theme" value="dark" id="dark-check">
-          <label class="form-check-label" for="dark-check">Dark</label>
-        </div>
-
-        <div class="form-check form-switch mb-1">
-          <input class="form-check-input" type="checkbox" name="compact" value="fixed" id="fixed-check" checked="">
-          <label class="form-check-label" for="fixed-check">Fixed</label>
-        </div>
-
-        <div class="form-check form-switch mb-1">
-          <input class="form-check-input" type="checkbox" name="compact" value="condensed" id="condensed-check">
-          <label class="form-check-label" for="condensed-check">Condensed</label>
-        </div>
-
-        <div class="form-check form-switch mb-1">
-          <input class="form-check-input" type="checkbox" name="compact" value="scrollable" id="scrollable-check">
-          <label class="form-check-label" for="scrollable-check">Scrollable</label>
-        </div>
-
-        <div class="d-grid mt-4">
-          <button class="btn btn-primary" id="resetBtn">Reset to Default</button>
-
-          <a href="../../product/hyper-responsive-admin-dashboard-template/index.htm" class="btn btn-danger mt-3" target="_blank"><i class="mdi mdi-basket me-1"></i> Purchase Now</a>
-        </div>
-      </div> <!-- end padding-->
-
-    </div>
-  </div>
+ 
 
   <div class="rightbar-overlay"></div>
   <!-- /End-bar -->

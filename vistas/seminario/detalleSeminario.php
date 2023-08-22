@@ -210,7 +210,11 @@ if (!$respuesta->respuesta) {
         <div class="card">
             <div class="card-body">
                 <!-- <h5 class="card-title mb-3">Progress</h5> -->
-                <button type="button" class="btn btn-guinda " data-bs-toggle="modal" data-bs-target="#registro-seminario-modal">Registrate</button>
+              
+                <?php echo  (!$validar_matricula->respuesta) ? '<button type="button" class="btn btn-guinda " data-bs-toggle="modal" data-bs-target="#registro-seminario-modal">Registrate</button>' : '<div class="alert alert-success" role="alert">
+    <i class="dripicons-checkmark me-2"></i> Usted ya se encuentra <strong>registrado en el seminario</strong> 
+</div>' ; ?>
+                
                 <br>
                 <br>
 
