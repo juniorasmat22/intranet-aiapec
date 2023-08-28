@@ -92,12 +92,13 @@
 
         <!-- Auth fluid right content -->
         <div class="auth-fluid-right text-center">
+          
             <div class="auth-user-testimonial">
-                <h2 class="mb-3">Academia Aiapaec!</h2>
-                <p class="lead"><i class="mdi mdi-format-quote-open"></i> La pre de los cómputos e ingresantes mas jóvenes ! . <i class="mdi mdi-format-quote-close"></i>
-                </p>
+                <h2 class="mb-3"> La pre de los cómputos e ingresantes mas jóvenes!</h2>
+                <!-- <p class="lead"><i class="mdi mdi-format-quote-open"></i> La pre de los cómputos e ingresantes mas jóvenes ! . <i class="mdi mdi-format-quote-close"></i>
+                </p> -->
                 <p>
-                    - Hyper Admin User
+                    - Academia Aiapaec
                 </p>
             </div> <!-- end auth-user-testimonial-->
         </div>

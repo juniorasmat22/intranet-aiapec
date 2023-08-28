@@ -17762,12 +17762,11 @@ body.auth-fluid-pages[data-leftbar-compact-mode=condensed] {
     -webkit-box-align: stretch;
     -ms-flex-align: stretch;
     align-items: stretch;
-    background: url(../images/bg-auth.jpg) center;
-    background-size: cover
+   
 }
 
 .auth-fluid .auth-fluid-form-box {
-    max-width: 40%;
+    max-width: 33%;
     border-radius: 0;
     z-index: 2;
     padding: 3rem 2rem;
@@ -17778,13 +17777,18 @@ body.auth-fluid-pages[data-leftbar-compact-mode=condensed] {
 
 .auth-fluid .auth-fluid-left,
 .auth-fluid .auth-fluid-right {
-    padding: 6rem 3rem;
+    padding: 4rem 1rem;
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
     position: relative;
     color: #fff;
     background-color: rgba(0, 0, 0, .3)
+}
+.auth-fluid .auth-fluid-right {
+    background: url(../images/INTRANET.png) center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .auth-brand {
@@ -17805,7 +17809,7 @@ body.auth-fluid-pages[data-leftbar-compact-mode=condensed] {
     padding: 0 1.75rem;
     bottom: 3rem;
     left: 0;
-    right: 0
+    right: 0;
 }
 
 .auth-user-testimonial p.lead {
