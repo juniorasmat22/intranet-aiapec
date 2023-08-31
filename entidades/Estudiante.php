@@ -49,6 +49,7 @@ class Estudiante extends Entidad
 	public $seccionColegio;
 	public $correoCorporativo;
 	public $passworCorporativo;
+	public $fotoEstudiante;
 	public function setConsulta($filaConsulta)
 	{
 		$this->idEstudiante = $this->obtenerColumna($filaConsulta, 'id_estudiante');
@@ -80,6 +81,8 @@ class Estudiante extends Entidad
 		$this->passworCorporativo = $this->obtenerColumna($filaConsulta, 'password_corporativo_estudiante');
 		$this->colegioEscolar = $this->obtenerColumna($filaConsulta, 'colegio_escolar');
 		$this->sedeColegio = $this->obtenerColumna($filaConsulta, 'sede_colegio');
+		$this->idGrado = $this->obtenerColumna($filaConsulta, 'id_grado');
+		$this->fotoEstudiante = $this->obtenerColumna($filaConsulta, 'foto_estudiante');
 	
 	}
 	public function bindValues($statement)
@@ -96,27 +99,22 @@ class Estudiante extends Entidad
 		$statement->bindValue(10, $this->apellidoApoderadoEstudiante, PDO::PARAM_STR);
 		$statement->bindValue(11, $this->correoApoderadoEstudiante, PDO::PARAM_STR);
 		$statement->bindValue(12, $this->celularApoderadoEstudiante, PDO::PARAM_STR);
-		// $statement->bindValue(13, $this->modalidadEstudiante, PDO::PARAM_STR);
 		$statement->bindValue(13, $this->estadoEstudiante, PDO::PARAM_STR);
-		// $statement->bindValue(15, $this->idCarrera, PDO::PARAM_INT);
 		$statement->bindValue(14, $this->idUsuario, PDO::PARAM_INT);
 		$statement->bindValue(15, date("Y-m-d H:i:s", strtotime($this->fechaRegistroEstudiante)), PDO::PARAM_STR);
 		$statement->bindValue(16, $this->dniApoderadoEstudiante, PDO::PARAM_STR);
 		$statement->bindValue(17, $this->tipoEstudiante, PDO::PARAM_STR);
 		$statement->bindValue(18, date("Y-m-d", strtotime($this->fechaNacimientoEstudiante)), PDO::PARAM_STR);
 		$statement->bindValue(19, $this->edadEstudiante, PDO::PARAM_INT);
-		// $statement->bindValue(22, $this->idGrado, PDO::PARAM_INT);
-		// $statement->bindValue(23, $this->colegioEscolar, PDO::PARAM_STR);
 		$statement->bindValue(20, $this->situacionEstudiante, PDO::PARAM_STR);
 		$statement->bindValue(21, $this->tycEstudiante, PDO::PARAM_STR);
 		$statement->bindValue(22, $this->sexoEstudiante, PDO::PARAM_STR);
 		$statement->bindValue(23, $this->datosUpdated, PDO::PARAM_STR);
-		// $statement->bindValue(24, $this->passEstudiante, PDO::PARAM_STR);
-		
 		$statement->bindValue(24, $this->correoCorporativo, PDO::PARAM_STR);
 		$statement->bindValue(25, $this->passworCorporativo, PDO::PARAM_STR);
-		$statement->bindValue(26, $this->opcion, PDO::PARAM_INT);
-		$statement->bindValue(27, $this->pagina, PDO::PARAM_INT);
+		$statement->bindValue(26, $this->fotoEstudiante, PDO::PARAM_STR);
+		$statement->bindValue(27, $this->opcion, PDO::PARAM_INT);
+		$statement->bindValue(28, $this->pagina, PDO::PARAM_INT);
 		return $statement;
 	}
 
@@ -151,5 +149,6 @@ class Estudiante extends Entidad
 		$this->sexoEstudiante				= $metodo('sexoEstudiante');
 		$this->correoCorporativo			= $metodo('correoCorporativo');
 		$this->passworCorporativo			= $metodo('passworCorporativo');
+		$this->fotoEstudiante			= $metodo('fotoEstudiante');
 	}
 }
