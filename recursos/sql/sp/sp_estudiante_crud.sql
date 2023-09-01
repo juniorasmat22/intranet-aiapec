@@ -91,7 +91,6 @@ BEGIN
       select e.* from tbl_estudiante e 
       where e.numerodocumento_estudiante=numerodocumentoEstudiante;
     end if;
-   
 
 END $$
 DELIMITER ;

@@ -75,6 +75,5 @@ BEGIN
 		select * from tbl_mat_seminario where  id_estudiante=idEstudiante;
   end if;
 
-
 END $$
 DELIMITER ;

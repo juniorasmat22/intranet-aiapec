@@ -140,8 +140,28 @@
             </li>
 
             <li class="side-nav-item">
-              <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
+              <a data-bs-toggle="collapse" href="#sidebarConcursos" aria-expanded="false" aria-controls="sidebarConcursos" class="side-nav-link">
                 <i class="uil-medal"></i>
+                <!-- <span class="badge bg-success float-end">1</span> -->
+                <span> Concursos </span>
+                <span class="menu-arrow"></span>
+              </a>
+              <div class="collapse" id="sidebarConcursos">
+                <ul class="side-nav-second-level">
+                  <li>
+                    <a href="?c=concurso">Ver Todos</a>
+                  </li>
+                  <li>
+                    <a href="?c=registroconcurso&a=misConcursos">Mis concursos</a>
+                  </li>
+                 
+                </ul>
+              </div>
+            </li>
+
+            <li class="side-nav-item">
+              <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
+                <i class="uil-notes"></i>
                 <span> Notas </span>
                 <span class="menu-arrow"></span>
               </a>
@@ -185,18 +205,7 @@
 
           <?php  }
           ?>
-          <!-- Help Box -->
-          <div class="help-box text-white text-center">
-            <a href="javascript: void(0);" class="float-end close-btn text-white">
-              <i class="mdi mdi-close"></i>
-            </a>
-            <img src="recursos/assets/images/help-icon.svg" height="90" alt="Helper Icon Image">
-            <h5 class="mt-3">Unlimited Access</h5>
-            <p class="mb-3">Upgrade to plan to get access to unlimited reports</p>
-            <a href="javascript: void(0);" class="btn btn-outline-light btn-sm">Upgrade</a>
-          </div>
-          <!-- end Help Box -->
-          <!-- End Sidebar -->
+
         </ul>
         <div class="clearfix"></div>
 
