@@ -1,13 +1,12 @@
 <?php
 
 namespace controladores;
-
-$mi_seminario = new SeminarioControlador();
+$mi_concurso = new ConcursoControlador();
 ?>
 <table id="basic-datatable" class="table dt-responsive nowrap w-100">
     <thead>
         <tr>
-            <th>Seminario</th>
+            <th>Concurso</th>
             <th>Monto Cancelado</th>
             <th>Tipo de Pago</th>
             <th>Operación</th>
@@ -23,20 +22,20 @@ $mi_seminario = new SeminarioControlador();
         if ($respuesta->respuesta) {
             $filas = $respuesta->resultado;
             foreach ($filas as $fila) {
-                $mi_seminario->entidad->idSeminario = $fila->idSeminario;
-                $rpt_seminario = $mi_seminario->modelo->get($mi_seminario->entidad);
+                $mi_concurso->entidad->idConcurso = $fila->idConcurso;
+                $rpt_concurso = $mi_concurso->modelo->get($mi_concurso->entidad);
 
         ?>
                 <tr>
-                    <td><?php echo $rpt_seminario->resultado->nombreSeminario ?></td>
-                    <td><?php echo $fila->montoPagoSeminario ?></td>
-                    <td><?php echo $fila->tipoPagoSeminario ?></td>
+                    <td><?php echo $rpt_concurso->resultado->nombreConcurso ?></td>
+                    <td><?php echo $fila->montopago ?></td>
+                    <td><?php echo $fila->tipoPago ?></td>
                     <td><?php echo $fila->operacion ?></td>
                     <td>
-                        <img  src="data:image/jpg;base64,<?php echo base64_encode($fila->recibo);?> " class="img-fluid avatar-md rounded-circle"  alt="recibo-img" title="recibo-img"  height="10px">
+                        <img  src="data:image/jpg;base64,<?php echo base64_encode($fila->recibo);?> " class="img-fluid avatar-md rounded-circle"  alt="recibo-img" title="recibo-img" >
                     </td>
                     <td><span class="badge <?php echo ($fila->estado == 0) ? "bg-warning" : "bg-success"; ?> "><?php echo ($fila->estado == 0) ? "Pendiente" : "Aprobada"; ?></span></td>
-                    <td><?php echo date("d/m/Y h:i:s A", strtotime($fila->fechaMatSeminario)) ?></td>
+                    <td><?php echo date("d/m/Y h:i:s A", strtotime($fila->fechaRegistro)) ?></td>
                 </tr>
             <?php
             }

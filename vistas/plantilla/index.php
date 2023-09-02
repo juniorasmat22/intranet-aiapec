@@ -363,7 +363,7 @@ if($var=='seminario'){
   echo '<script src="recursos/js/simulacro/registro.js"></script>';
   
 }
-if ($var=='Matriculaseminario' || $var=='matricula') {
+if ($var=='Matriculaseminario' || $var=='matricula' || $var=='registroconcurso') {
   echo  '<script src="recursos/assets/js/vendor/jquery.dataTables.min.js"></script>';
   echo '<script src="recursos/assets/js/vendor/dataTables.bootstrap5.js"></script>';
   echo '<script  src="recursos/assets/js/vendor/dataTables.responsive.min.js"></script>';

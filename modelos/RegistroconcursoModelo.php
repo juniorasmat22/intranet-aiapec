@@ -15,4 +15,10 @@ class RegistroConcursoModelo extends Modelo{
 		return $this->noQuery($this->sp,$entidad);
 	 }
 
+	 public function get_concursos_por_estudiante($entidad)
+	 {
+		 $entidad->opcion = 6;
+		 return $this->queryObjects($this->sp, $entidad);
+	 }
+
 }

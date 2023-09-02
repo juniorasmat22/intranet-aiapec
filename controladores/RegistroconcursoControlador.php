@@ -35,9 +35,14 @@ class RegistroconcursoControlador extends Controlador
         $this->entidad->setMetodoPost();
         $respuesta = $this->modelo->update_estado($this->entidad);
         return $this->respuesta($respuesta);
-
-
-        
     }
+
+    public function misConcursos()
+	{
+		$vista = $this->vista = 'vistas/registroconcurso/registroconcurso.php';
+		$this->entidad->idEstudiante = $_SESSION['idEstudiante'];
+		$respuesta = $this->modelo->get_concursos_por_estudiante($this->entidad);
+		require 'vistas/plantilla/index.php';
+	}
 		
 }
