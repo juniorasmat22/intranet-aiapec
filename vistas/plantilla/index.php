@@ -12,7 +12,7 @@
   <?php   
   $var = isset($_GET['c']) ? $_GET['c'] : '';
   $var_action = isset($_GET['a']) ? $_GET['a'] : '';
-  if( $var=='Matriculaseminario' || $var=='matricula'){
+  if( $var=='Matriculaseminario' || $var=='matricula' || $var=='registroconcurso'){
     echo '<link href="recursos/assets/css/vendor/dataTables.bootstrap5.css" rel="stylesheet" type="text/css">';
     echo '<link href="recursos/assets/css/vendor/responsive.bootstrap5.css" rel="stylesheet" type="text/css">';
     echo '<link href="recursos/assets/css/vendor/buttons.bootstrap5.css" rel="stylesheet" type="text/css">';

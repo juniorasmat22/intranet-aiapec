@@ -12,7 +12,19 @@
         </div>
     </div>
 </div>
-
 <div class="row">
-    <?php require 'tablaregistro.php';?>
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row mb-2">
+                    <!-- <div class="col-sm-4">
+                        <a href="javascript:void(0);" class="btn btn-guinda mb-2" data-bs-toggle="modal" data-bs-target="#crearModal"><i class="mdi mdi-plus-circle me-2"></i>Registrar</a>
+                    </div> -->
+                    <!-- <div class="col-sm-8">  
+                    </div> -->
+                </div>
+                <?php require 'tablaregistro.php';?>
+            </div> <!-- end card body-->
+        </div> <!-- end card -->
+    </div><!-- end col-->
 </div>

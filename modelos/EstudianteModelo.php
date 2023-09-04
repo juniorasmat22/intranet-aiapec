@@ -14,5 +14,8 @@ class EstudianteModelo extends Modelo{
 		$estudiante->opcion=2;
 		return $this->noQuery($this->sp,$estudiante);
 	}
-	
+	public function getEstudiante($estudiante)  {
+		$estudiante->opcion=6;
+		return $this->queryObjeto($this->sp,$estudiante);
+	}
 }

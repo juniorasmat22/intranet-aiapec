@@ -44,5 +44,14 @@ class RegistroconcursoControlador extends Controlador
 		$respuesta = $this->modelo->get_concursos_por_estudiante($this->entidad);
 		require 'vistas/plantilla/index.php';
 	}
+    public function ficha(){
+        $id_ficha=isset($_GET['idFicha'])?$_GET['idFicha']:null;
+        $this->entidad->idRegistroConcurso=$id_ficha;
+        $respuesta = $this->modelo->get($this->entidad);
+        $estudiante= new EstudianteControlador();
+        $estudiante->entidad->idEstudiante= $respuesta ->resultado->idEstudiante;
+        $mi_estudiante=$estudiante->modelo->getEstudiante($estudiante->entidad); 
+        require_once "vistas/registroconcurso/ficha.php";
+    }
 		
 }
