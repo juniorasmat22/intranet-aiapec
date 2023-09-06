@@ -30,7 +30,7 @@ $lista_seminarios = $seminarios->modelo->listar();
         <!-- project card -->
         <div class="card d-block">
             <!-- project-thumbnail -->
-            <img class="card-img-top" src="recursos/assets/images/projects/project-1.jpg" alt="project image cap">
+            <img class="card-img-top" src="data:image/jpg;base64,<?php echo base64_encode($fila->imagenSeminario); ?> " alt="project image cap">
             <div class="card-img-overlay">
                 <div class="badge bg-secondary text-light p-1">Ciencias</div>
             </div>

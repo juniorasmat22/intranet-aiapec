@@ -49,9 +49,11 @@ $mi_concurso = new ConcursoControlador();
                     <td>
                         
                         <?php if ($fila->estado == 1) { ?>
-                            <a type="button" href="?c=registroconcurso&a=ficha&idFicha=<?php echo $fila->idRegistroConcurso; ?>" class="btn btn-outline-success"><i class="mdi mdi-file-pdf-outline"></i>Ficha</a>
+                            <a type="button" href="?c=registroconcurso&a=ficha&idFicha=<?php echo $fila->idRegistroConcurso; ?>" class="btn btn-outline-success" target="_blank"> <i class="mdi mdi-file-pdf-outline"></i>Ficha</a>
                         <?php } ?>
-                        <a type="button" href="" class="btn btn-outline-warning"><i class="mdi mdi-pencil"></i></a>
+                        <?php if ($fila->estado != 1) { ?>
+                            <a type="button" href="?c=registroconcurso&a=get&idRegistroConcurso=<?php echo $fila->idRegistroConcurso ?>" class="btn btn-outline-warning editar"><i class="mdi mdi-pencil"></i></a>
+                        <?php } ?>
                     </td>
                     <td>
                         <img src="data:image/jpg;base64,<?php echo base64_encode($fila->recibo); ?> " class="img-fluid avatar-md rounded-circle" alt="recibo-img" title="recibo-img">

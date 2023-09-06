@@ -1,9 +1,18 @@
+
 <?php
 require('fpdf/fpdf.php');
 
 
 class PDF extends FPDF
 {
+
+ // Función personalizada para establecer metaetiquetas
+ function SetMetaTags($title, $author, $subject, $keywords) {
+    $this->SetTitle($title);
+    $this->SetAuthor($author);
+    $this->SetSubject($subject);
+    $this->SetKeywords($keywords);
+}
 // Cabecera de página
 function Header()
 {
@@ -24,9 +33,10 @@ function Header()
 // Movernos a la derecha
     $this->Cell(80);
     // Título
-    $this->Cell(30,10,'Concurso ABC',0,0,'C');
+    // $this->Cell(30,10,"Concurso ABC",0,0,'C');
     // Salto de línea
     $this->Ln(20);
+    $this->Image('fpdf/logo_academia_color.png',160,8,33);
 }
 
 // Pie de página
@@ -38,95 +48,81 @@ function Footer()
     $this->SetFont('Poppins','',10);
     // Número de página
     $this->Cell(0,10,mb_convert_encoding('Página ', 'ISO-8859-1', 'UTF-8').$this->PageNo().'/{nb}',0,0,'C');
+    $this->Image('fpdf/logo_academia_color.png',10,280,33);
+    $this->Image('fpdf/logo_academia_color.png',160,280,33);
 }
 }
+
+
 // Creación del objeto de la clase heredada
 $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
-$pdf->SetFont('Poppins','',20);
+$pdf->SetFont('Poppins-Bold','',17);
 $pdf->Cell(80);
-$pdf->Cell(30,10,mb_convert_encoding('Ficha de Inscripción', 'ISO-8859-1', 'UTF-8'),0,0,'C');
-$pdf->Cell(160);
+$pdf->Cell(30,10,mb_convert_encoding('Ficha de Inscripción Aiapaec', 'ISO-8859-1', 'UTF-8'),0,0,'C');
 
-$pdf->SetFont('Poppins','',10);
+$pdf->SetFont('Poppins-Bold','',10);
 $pdf->Ln(7);
-$pdf->SetXY(30,45);
-$pdf->Cell(22,2,mb_convert_encoding("CÓDIGO :  ", 'ISO-8859-1', 'UTF-8'));
-$pdf->Cell(20,2,mb_convert_encoding($_SESSION['idEstudiante'], 'ISO-8859-1', 'UTF-8') );
-$pdf->Ln(7); 
+
 // Convierte el dato BLOB en una imagen base64
 $imagenBase64 = base64_encode($mi_estudiante->resultado->fotoEstudiante);
 // Agrega la imagen al PDF
-$pdf->Image("data:image/jpeg;base64," . $imagenBase64, 20, 50, 50, 0, 'PNG');
+
+$pdf->Image('data:image/jpeg;base64,' . $imagenBase64, 20, 85, 60,0,'JPEG');
+$pdf->SetFont('Poppins-Bold','',15);
+$pdf->SetXY(30,65);
+$pdf->Cell(22,2,mb_convert_encoding("Código :  ", 'ISO-8859-1', 'UTF-8'));
+$pdf->SetFont('Poppins','',15);
+$pdf->SetXY(60,65);
+$pdf->Cell(22,2,mb_convert_encoding(sprintf("%05d", $mi_estudiante->resultado->idEstudiante), 'ISO-8859-1', 'UTF-8'));
+$pdf->SetFont('Poppins-Bold','',15);
+$pdf->SetXY(90,70);
+$pdf->Cell(30,10,"D.N.I :  ",0,0);
+$pdf->SetXY(90,90);
+$pdf->Cell(30,10,"Apellidos :  ",0,0);
+$pdf->SetXY(90,110);
+$pdf->Cell(30,10,"Nombres: ",0,0);
+$pdf->SetXY(90,130);
+$pdf->Cell(30,10,"Nivel : ",0,0);
+$pdf->SetXY(90,150);
+$pdf->Cell(30,10,"Grado : ",0,0);
+$pdf->SetXY(90,170);
+$pdf->Cell(30,10,"Apoderado : ",0,0);
+$pdf->SetFont('Poppins','',15);
+$pdf->SetXY(95,83);
+$pdf->Cell(20,2,mb_convert_encoding($mi_estudiante->resultado->numerodocumentoEstudiante , 'ISO-8859-1', 'UTF-8'));
+$pdf->SetXY(95,103);
+$pdf->Cell(20,2,mb_convert_encoding(ucwords($mi_estudiante->resultado->apellidoEstudiante) , 'ISO-8859-1', 'UTF-8'));
+$pdf->SetXY(95,123);
+$pdf->Cell(20,2,mb_convert_encoding(ucwords($mi_estudiante->resultado->nombresEstudiante) , 'ISO-8859-1', 'UTF-8'));
+$pdf->SetXY(95,143);
+$pdf->Cell(25,2,mb_convert_encoding($mi_nivel->resultado->descripcionNivel, 'ISO-8859-1', 'UTF-8'));
+$pdf->SetXY(95,163);
+$pdf->Cell(25,2,mb_convert_encoding( $mi_grado->resultado->descripcionGrado, 'ISO-8859-1', 'UTF-8'));
+$pdf->SetXY(95,183);
+$pdf->Cell(25,2,mb_convert_encoding( ucwords($mi_estudiante->resultado->apellidoApoderadoEstudiante)." ".ucwords($mi_estudiante->resultado->nombreApoderadoEstudiante), 'ISO-8859-1', 'UTF-8'));
+
+
 $pdf->SetFont('Poppins','',10);
-$pdf->Ln(7);
-$pdf->SetXY(80,55);
-$pdf->Cell(22,2,"ESTUDIANTE :  ");
-$pdf->Cell(20,2,mb_convert_encoding($_SESSION['name'], 'ISO-8859-1', 'UTF-8'));
-$pdf->Ln(7); 
-$pdf->SetXY(80,75);
-$pdf->Cell(20,2,"SEDE: ");
-$pdf->Cell(20,2,'TRUJILLO');
-$pdf->Ln(7); 
-$pdf->SetXY(80,85);
-$pdf->Cell(25,2,"UNIDAD : ");
-$pdf->Cell(25,2,mb_convert_encoding(strtoupper(0), 'ISO-8859-1', 'UTF-8'));
-$pdf->Ln(7); 
-$pdf->SetXY(80,95);
-$pdf->Cell(25,2,"PROGRAMA : ");
-$pdf->Cell(25,2,mb_convert_encoding(strtoupper(1), 'ISO-8859-1', 'UTF-8'));
-$pdf->Ln(7);
-$pdf->SetXY(80,105);
-$pdf->Cell(25,2,mb_convert_encoding("MENCIÓN : ", 'ISO-8859-1', 'UTF-8'));
-$pdf->Cell(25,2,mb_convert_encoding(strtoupper(2), 'ISO-8859-1', 'UTF-8'));
-$pdf->Ln(7); 
-$pdf->SetXY(80,115);
-$pdf->Cell(25,2,"CICLO : ");
-$pdf->Cell(25,2,mb_convert_encoding(strtoupper(3), 'ISO-8859-1', 'UTF-8'));
-$pdf->Ln(7); 
-$pdf->SetXY(80,125);
-$pdf->Cell(25,2,"SEMESTRE : ");
-$pdf->Cell(25,2,mb_convert_encoding(strtoupper(4), 'ISO-8859-1', 'UTF-8'));
-$pdf->Ln(7); 
-$pdf->Ln(10);
-//tabla
+$pdf->SetXY(10,256);
+$pdf->MultiCell(190,5,mb_convert_encoding("Ficha válida solo para el ".$mi_concurso->resultado->nombreConcurso.", evento a realizarce el día ". date("d/m/Y", strtotime($mi_concurso->resultado->fechaConcurso))." a las ". date("h:i A", strtotime($mi_concurso->resultado->horaConcurso))."\nDicho concurso tendra lugar en  ".$mi_concurso->resultado->lugarConcurso,'ISO-8859-1', 'UTF-8'),0);
+// Establecer metaetiquetas
+$title = "Intranet | Academia Aiapaec";
+$author = "TI AIAPAEC";
+$subject = "Intranet Academia Aiapaec";
+$keywords = "Academia, Aiapaec, Trujillo, UNT";
 
-$pdf->SetFontSize(10);
-$pdf->SetFont('Arial','B',9); 
-$pdf->SetFillColor(46, 92, 189);
-$pdf->SetTextColor(255,255,255);
-$pdf->SetDrawColor(0,0,0);
-
-$N=mb_convert_encoding("N°", 'ISO-8859-1', 'UTF-8');
-$pdf->Cell(10,5,$N,1,0,'C',1);
-$pdf->Cell(130,5,"CURSOS",1,0,'C',1);
-$pdf->Cell(20,5,"CICLO",1,0,'C',1);
-$pdf->Cell(20,5,mb_convert_encoding("CRÉDITOS", 'ISO-8859-1', 'UTF-8'),1,0,'C',1);
+$pdf->SetMetaTags($title, $author, $subject, $keywords);
 
 
-$pdf->Ln();
-$pdf->SetFont('Arial','',9);
-$pdf->SetFillColor(255,255,255);
-$pdf->SetTextColor(0,0,0);
-$pdf->SetDrawColor(0,0,0);
-$num=0;
-// $cursos=$mi_detalle->resultado;
-//     foreach ($cursos as $curso){
-//     $num+=1;
-//     $pdf->Cell(10,5,$num,1,0,'C',1);
-//     $pdf->Cell(130,5,utf8_decode(strtoupper($curso->nombre)),1,0,'C',1);
-//     $pdf->Cell(20,5,$curso->ciclo,1,0,'C',1);
-//     $pdf->Cell(20,5,$curso->creditos,1,0,'C',1);
-
-//     $pdf->Ln();
-//     }
-
-//  $pdf->Cell(160,5,utf8_decode("TOTAL DE CRÉDITOS"),1,0,'C',1);
-//   $pdf->Cell(20,5,$suma_creditos->resultado[0]->suma,1,0,'C',1);
-
+//tablas
 $pdf->Ln(10);
 $pdf->Cell(15);
-//$pdf->Cell(25,2,"TOTAL A PAGAR : ");
-$pdf->Output();
+
+// Establecer cabeceras para descarga del archivo PDF
+header('Content-Type: application/pdf');
+header('Content-Disposition: attachment; filename="documento.pdf"');
+// Enviar el contenido del PDF al navegador
+$pdf->Output($mi_estudiante->resultado->numerodocumentoEstudiante.'.pdf', 'D');
 ?>

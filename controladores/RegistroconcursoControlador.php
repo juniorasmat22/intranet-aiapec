@@ -48,9 +48,27 @@ class RegistroconcursoControlador extends Controlador
         $id_ficha=isset($_GET['idFicha'])?$_GET['idFicha']:null;
         $this->entidad->idRegistroConcurso=$id_ficha;
         $respuesta = $this->modelo->get($this->entidad);
+        //datos del estudiante
         $estudiante= new EstudianteControlador();
         $estudiante->entidad->idEstudiante= $respuesta ->resultado->idEstudiante;
         $mi_estudiante=$estudiante->modelo->getEstudiante($estudiante->entidad); 
+        //datos del concurso
+        $concurso= new ConcursoControlador();
+        $concurso->entidad->idConcurso=$respuesta ->resultado->idConcurso;
+        $mi_concurso=$concurso->modelo->get($concurso->entidad);
+        $est_escolar=new EstudianteescolarControlador();
+        $est_escolar->entidad->idEstudiante= $respuesta ->resultado->idEstudiante;
+        $mi_estudiante_escolar=$est_escolar->modelo->get_estudiante_escolar( $est_escolar->entidad);
+
+        //GRADO
+        $grado=new GradoControlador();
+        $grado->entidad->idGrado= $mi_estudiante_escolar->resultado->idGrado;
+        $mi_grado=$grado->modelo->get($grado->entidad);
+
+        //nivel
+        $nivel=new NivelControlador();
+        $nivel->entidad->idNivel= $mi_grado->resultado->idNivel;
+        $mi_nivel= $nivel->modelo->get($nivel->entidad);
         require_once "vistas/registroconcurso/ficha.php";
     }
 		

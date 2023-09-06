@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <title>Intranet | Academia Aiapaec</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
-  <meta content="Coderthemes" name="author">
+  <meta content="Intranet Academia Aiapaec" name="description">
+  <meta content="TI AIAPAEC" name="author">
   <!-- App favicon -->
   <link rel="shortcut icon" href="recursos/img/letra_color.png">
   <?php   
@@ -377,6 +377,9 @@ if ($var=='matricula') {
 }
 if ($var=='cuota') {
   echo '<script src="recursos/js/pagos/registro_pago.js"></script>';
+}
+if ($var=='registroconcurso') {
+  echo '<script src="recursos/js/simulacro/editar.js"></script>';
 }
 ?>
 
