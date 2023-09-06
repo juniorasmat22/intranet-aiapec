@@ -82,7 +82,7 @@
 
                     <!-- Footer-->
                     <footer class="footer footer-alt">
-                        <p class="text-muted">No tienes una cuenta? <a href="pages-register-2.html" class="text-muted ms-1"><b>Registrate </b></a>y forma parte de la familia Aiapaec</p>
+                        <p class="text-muted">No tienes una cuenta? <a href="http://localhost/registro-aiapaec/" class="text-muted ms-1"><b>Registrate </b></a>y forma parte de la familia Aiapaec</p>
                     </footer>
 
                 </div> <!-- end .card-body -->

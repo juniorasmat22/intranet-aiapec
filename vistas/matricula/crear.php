@@ -16,12 +16,12 @@
  <div class="row">
      <div class="card">
          <div class="card-body">
-             <h4 class="header-title">Default Alert</h4>
+             <!-- <h4 class="header-title">Default Alert</h4>
              <p class="text-muted font-14 mb-3">
                  Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
                  Alerts are available for any length of text, as well as an optional dismiss
                  button.
-             </p>
+             </p> -->
              <form class="needs-validation" novalidate method="POST" action="?c=matricula&a=crear" id="formCrear">
                   <input type="hidden" name="idEstudiante" value="<?php echo $_SESSION['idEstudiante']?>">
                  <div class="row">
@@ -92,8 +92,15 @@
                                  <option disabled selected value="">Seleccione una opción</option>
                                  <option value="1">1 Cuota</option>
                                  <option value="2">2 Cuotas</option>
-                                 <option value="3">3 Cuotas</option>
-                                 <option value="4">4 Cuotas</option>
+                                 <?php
+                                 date_default_timezone_set('America/Lima');
+                                   $todaysDate = date("Y-m-d");
+                                   $dateString = "2023-09-05";
+                              if ($todaysDate>$dateString) {?>
+                                   <option value="3">3 Cuotas</option>
+                                    <option value="4">4 Cuotas</option>
+                                    <?php } 
+                                    ?>
                              </select>
                              <div class="valid-feedback">
                                  Genial!

@@ -37,7 +37,6 @@ $mis_matriculas = $matricula->modelo->get_matriculas_por_estudiante($matricula->
             $costos = new CostoControlador();
             $costos->entidad->tipoCosto = $fila->idProgramaAcademia;
             $costos_programa = $costos->modelo->get_costo_por_programa($costos->entidad);
-
     ?>
             <div class="mt-2">
                 <h5 class="m-0 pb-2">
@@ -68,6 +67,7 @@ $mis_matriculas = $matricula->modelo->get_matriculas_por_estudiante($matricula->
                                     $cuota->entidad->idMatricula = $fila->idMatricula;
                                     $cuota->entidad->idCosto = $costo->idCosto;
                                     $miscuotas = $cuota->modelo->get_cuota_por_matricula($cuota->entidad);
+                                 
                                     ?>
                                     <!-- end task -->
                                     <table class="table table-centered mb-0" id="tabla_cuotas">
@@ -86,6 +86,7 @@ $mis_matriculas = $matricula->modelo->get_matriculas_por_estudiante($matricula->
                                         <tbody>
                                             <?php if ($miscuotas->respuesta) {
                                                 $mis_cuotas_programa = $miscuotas->resultado;
+                                              
                                                 foreach ($mis_cuotas_programa as $micuota) { ?>
                                                     <tr>
                                                         <!-- <td><?php //echo $micuota->idCuota;  ?></td> -->

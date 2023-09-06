@@ -6,7 +6,7 @@ DROP procedure if exists sp_costo_crud $$
 CREATE PROCEDURE sp_costo_crud(
   idCosto int,
   nombreCosto varchar(45),
-  tipoCosto varchar(1),
+  tipoCosto varchar(2),
   estadoCosto int,
   opcion int,
   pagina int
