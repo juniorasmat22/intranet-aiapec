@@ -30,7 +30,6 @@
                              <label class="form-label" for="validationCustom01">Programa</label>
                              <select class="form-control select2" data-toggle="select2" required name="idProgramaAcademia" id="idProgramaAcademia" onchange="llenar_nivel_sede()">
                                  <option disabled selected value="">Seleccione un programa</option>
-
                                  <?php
                                     if ($lista_programas->respuesta) {
                                         $filas_programas = $lista_programas->resultado;
