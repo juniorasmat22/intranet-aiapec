@@ -381,6 +381,9 @@ if ($var=='cuota') {
 if ($var=='registroconcurso') {
   echo '<script src="recursos/js/simulacro/editar.js"></script>';
 }
+if ($var=='pago') {
+  echo '<script src="recursos/js/pagos/update_pago.js"></script>';
+}
 ?>
 
 </body>
