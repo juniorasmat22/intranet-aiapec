@@ -95,7 +95,7 @@ $mis_matriculas = $matricula->modelo->get_matriculas_por_estudiante($matricula->
                                                         <td><?php echo "S/.  " . number_format($micuota->totalCuota, 2);  ?></td>
                                                         <?php if ($costo->nombreCosto == 'Matrícula') { ?>
                                                             <td>
-                                                                <?php echo date("d/m/Y H:m:s A", strtotime($micuota->fechaVencimientoCuota));  ?>
+                                                                <?php echo date("d/m/Y", strtotime($micuota->fechaVencimientoCuota));  ?>
                                                             </td>
                                                         <?php } ?>
                                                         <td>
