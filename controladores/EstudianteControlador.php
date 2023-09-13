@@ -28,8 +28,15 @@ class EstudianteControlador extends Controlador
 		require 'vistas/plantilla/index.php';
 	}
 	public function miPerfil(){
-		$this->entidad->numerodocumentoEstudiante = $_SESSION['useranem'];
+
+		$this->entidad->numerodocumentoEstudiante=$_SESSION['useranem'];
 		$estudiante = $this->modelo->get($this->entidad);
+		$pre= new EstudiantepreControlador();
+		$pre->entidad->idEstudiante=$estudiante->resultado->idEstudiante;
+		$estudiante_pre=$pre->modelo->get_estudiante_pre($pre->entidad);
+		$escolar= new EstudianteescolarControlador();
+		$escolar->entidad->idEstudiante=$estudiante->resultado->idEstudiante;
+		$estudiante_escolar=$escolar->modelo->get_estudiante_escolar($escolar->entidad);
 		$vista = $this->vista = 'vistas/estudiante/perfil.php';
 		require 'vistas/plantilla/index.php';
 	}

@@ -339,17 +339,7 @@
   <script src="recursos/assets/js/vendor.min.js"></script>
   <script src="recursos/assets/js/app.min.js"></script>
 
-  <!-- para el dashboard -->
-  <!-- third party js -->
-  <!-- <script src="assets/js/vendor/Chart.bundle.min.js"></script> -->
-  <script src="recursos/assets/js/vendor/apexcharts.min.js"></script>
-  <script src="recursos/assets/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
-  <script src="recursos/assets/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
-  <!-- third party js ends -->
 
-  <!-- demo app -->
-  <script src="recursos/assets/js/pages/demo.dashboard-analytics.js"></script>
-  <!-- end demo js-->
 
   <!-- ajax -->
 
