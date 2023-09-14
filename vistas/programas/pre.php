@@ -24,7 +24,7 @@
              <div class="col-md-6 col-lg-3">
                  <!-- Simple card -->
                  <div class="card d-block">
-                     <img class="card-img-top" src="recursos/assets/images/small/small-1.jpg" alt="Card image cap">
+                 <img class="card-img-top" src="recursos/img/programas/<?php echo $fila->portadaPrograma; ?>" alt="Card image cap">
                      <div class="card-body">
                          <h5 class="card-title"><?php echo $fila->nombreProgramasAcademia; ?></h5>
                          <p class="card-text"><?php echo $fila->descripcionPrograma; ?></p>

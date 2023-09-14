@@ -56,7 +56,7 @@
                      </div>
                      <div class="col-md-4" id="niveles_programa">
                          <div class="mb-3">
-                             <label class="form-label" for="programaNivel">Nivel</label>
+                             <label class="form-label" for="programaNivel">Tipo</label>
                              <select required class="form-control select2" name="programaNivel" id="programaNivel" required data-toggle="select2">
                                  <option selected disabled value="">Seleccione una opción</option>
                              </select>
@@ -94,7 +94,7 @@
                                  <?php
                                  date_default_timezone_set('America/Lima');
                                    $todaysDate = date("Y-m-d");
-                                   $dateString = "2023-09-05";
+                                   $dateString = "2023-09-26";
                               if ($todaysDate>$dateString) {?>
                                    <option value="3">3 Cuotas</option>
                                     <option value="4">4 Cuotas</option>

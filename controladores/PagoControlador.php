@@ -15,11 +15,13 @@ class PagoControlador extends Controlador
 		$archivo =file_get_contents($_FILES["recibos"]["tmp_name"]);
         $this->entidad->setMetodoPost();
 		$this->entidad->reciboPago=$archivo;
+		$this->entidad->cajeroPago='Pendiente';
         $respuesta=$this->modelo->crear_pago($this->entidad);
 		if ($respuesta->resultado) {
 			$detalle= new DetallepagoControlador();
 			$detalle->entidad->setMetodoPost();
 			$detalle->entidad->idPago=$respuesta->resultado['0']['ID'];
+			$detalle->entidad->cantidad=1;
 			$respuesta2=$detalle->modelo->crear($detalle->entidad);
 			$this->respuesta($respuesta2);
 		} else {
@@ -38,7 +40,7 @@ class PagoControlador extends Controlador
 			$mi_detalle=$detalle->modelo->get_detalle_pago($detalle->entidad);
 			
 		}
-		$vista = 'vistas/pagos/verPago.php ';
+		$vista = 'vistas/pagos/verPago.php';
 		require 'vistas/plantilla/index.php';
 	}
 	public function get_estado(){

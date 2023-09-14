@@ -83,5 +83,14 @@ BEGIN
 		select * from tbl_cuota WHERE id_matricula=idMatricula and id_costo=idCosto;
   end if;
 
+
+     -- actualizar el precio para estudiantes aiapaec
+	if opcion=7 then
+		UPDATE tbl_cuota 
+    SET 
+    monto_cuota=6, 
+    total_cuota=6
+    WHERE id_matricula=idMatricula and id_costo=idCosto;
+  end if;
 END $$
 DELIMITER ;

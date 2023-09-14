@@ -28,7 +28,7 @@
     --bs-danger: #fa5c7c;
     --bs-light: #eef2f7;
     --bs-dark: #313a46;
-    --bs-font-sans-serif: "Nunito", sans-serif;
+    --bs-font-sans-serif: 'Poppins', sans-serif;;
     --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0))
 }
@@ -48,9 +48,9 @@
 
 body {
     margin: 0;
-    font-family: Nunito, sans-serif;
+    font-family: 'Poppins', sans-serif;;
     font-size: .9rem;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.5;
     color: #6c757d;
     background-color: #fafbfe;

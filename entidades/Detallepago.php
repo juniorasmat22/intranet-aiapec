@@ -8,6 +8,7 @@ class Detallepago extends Entidad
     public $montoPago;
     public $idPago;
     public $idCuota;
+	public $cantidad;
 
 
 
@@ -17,6 +18,7 @@ class Detallepago extends Entidad
 		$this->montoPago=$this->obtenerColumna($filaConsulta,'monto_pago');
 		$this->idPago=$this->obtenerColumna($filaConsulta,'id_pago');
 		$this->idCuota=$this->obtenerColumna($filaConsulta,'id_cuota');
+		$this->cantidad=$this->obtenerColumna($filaConsulta,'cantidad');
 	}
 	public function bindValues($statement){
 		$statement->bindValue(1,$this->idDetallePago,PDO::PARAM_INT);
@@ -24,9 +26,9 @@ class Detallepago extends Entidad
 		$statement->bindValue(3,$this->montoPago,PDO::PARAM_STR);
 		$statement->bindValue(4,$this->idPago,PDO::PARAM_INT);
 		$statement->bindValue(5,$this->idCuota,PDO::PARAM_INT);
-		$statement->bindValue(6,$this->opcion,PDO::PARAM_INT);
-		$statement->bindValue(7,$this->pagina,PDO::PARAM_INT);
-
+		$statement->bindValue(6,$this->cantidad,PDO::PARAM_STR);
+		$statement->bindValue(7,$this->opcion,PDO::PARAM_INT);
+		$statement->bindValue(8,$this->pagina,PDO::PARAM_INT);
 		return $statement;
 	}
 
@@ -36,6 +38,7 @@ class Detallepago extends Entidad
 		$this->montoPago            = $metodo('montoPago');
 		$this->idPago               = $metodo('idPago');
 		$this->idCuota              = $metodo('idCuota');
+		$this->cantidad             = $metodo('cantidad');
 	}
 
 }

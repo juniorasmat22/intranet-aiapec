@@ -11,6 +11,7 @@ class Pago extends Entidad
 	public $estadoPago;
 	public $fechaPago;
 	public $idEstudiante;
+	public $cajeroPago;
 
 
 
@@ -24,6 +25,7 @@ class Pago extends Entidad
 		$this->estadoPago=$this->obtenerColumna($filaConsulta,'estado_pago');
 		$this->fechaPago=$this->obtenerColumna($filaConsulta,'fecha_pago');
 		$this->idEstudiante=$this->obtenerColumna($filaConsulta,'id_estudiante');
+		$this->cajeroPago=$this->obtenerColumna($filaConsulta,'cajero_pago');
 		
 	}
 	public function bindValues($statement){
@@ -35,8 +37,9 @@ class Pago extends Entidad
 		$statement->bindValue(6,$this->estadoPago,PDO::PARAM_STR);
 		$statement->bindValue(7,date("Y-m-d H:i:s", strtotime($this->fechaPago)), PDO::PARAM_STR);
         $statement->bindValue(8,$this->idEstudiante,PDO::PARAM_INT);
-		$statement->bindValue(9,$this->opcion,PDO::PARAM_INT);
-		$statement->bindValue(10,$this->pagina,PDO::PARAM_INT);
+		$statement->bindValue(9,$this->cajeroPago,PDO::PARAM_INT);
+		$statement->bindValue(10,$this->opcion,PDO::PARAM_INT);
+		$statement->bindValue(11,$this->pagina,PDO::PARAM_INT);
 
 		return $statement;
 	}
@@ -50,6 +53,7 @@ class Pago extends Entidad
 		$this->estadoPago 	    = $metodo('estadoPago');
 		$this->fechaPago 	    = $metodo('fechaPago');
 		$this->idEstudiante 	= $metodo('idEstudiante');
+		$this->cajeroPago 		= $metodo('cajeroPago');
 	}
 
 }

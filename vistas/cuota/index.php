@@ -195,10 +195,10 @@ $mis_matriculas = $matricula->modelo->get_matriculas_por_estudiante($matricula->
                     <div class="position-relative mb-3">
                         <label for="tipoPago" class="form-label">Tipo de Pago</label>
                         <select class="form-select" id="tipoPago" name="tipoPago">
-                            <option>Tranferencia B.C.P</option>
-                            <option>Yape</option>
-                            <option>Tranferencia Interbancaria</option>
-                            <option>Efectivo</option>
+                            <option value="Tranferencia B.C.P">Tranferencia B.C.P</option>
+                            <option value="Yape">Yape</option>
+                            <option value="Tranferencia Interbancaria">Tranferencia Interbancaria</option>
+                            <option value="Efectivo">Efectivo</option>
 
                         </select>
                         <div class="valid-tooltip">
@@ -224,6 +224,7 @@ $mis_matriculas = $matricula->modelo->get_matriculas_por_estudiante($matricula->
                         <div class="invalid-tooltip">
                             Por favor seleccion un recibo.
                         </div>
+                        <span>Peso máximo: 1MB</span>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
