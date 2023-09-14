@@ -83,4 +83,3 @@ function enviarLink(a, valor, funcion) {
       }
     });
   }
-  
