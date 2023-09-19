@@ -144,8 +144,9 @@ BEGIN
            
                 SET contador = 1;
                 CASE
-                WHEN  NEW.id_programas_academia IN ('6','7','8','9','10','11') THEN set semanas=24;
-                WHEN  NEW.id_programas_academia IN ('12') THEN set semanas=46;
+                WHEN  NEW.id_programas_academia IN ('6','7','8','9','10') THEN set semanas=24;
+                WHEN  NEW.id_programas_academia IN ('10') THEN set semanas=46;
+                WHEN  NEW.id_programas_academia IN ('11') THEN set semanas=16;
                 ELSE
                 set semanas=0;
                 END CASE;

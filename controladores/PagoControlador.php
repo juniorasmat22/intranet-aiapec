@@ -16,7 +16,7 @@ class PagoControlador extends Controlador
         $this->entidad->setMetodoPost();
 		$this->entidad->reciboPago=$archivo;
 		$this->entidad->cajeroPago='Pendiente';
-		$this->entidad->estadoPago=2;
+		$this->entidad->estadoPago=1;
         $respuesta=$this->modelo->crear_pago($this->entidad);
 		if ($respuesta->resultado) {
 			$detalle= new DetallepagoControlador();

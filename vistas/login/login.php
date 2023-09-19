@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <title>Iniciar Sesión | Aiapaec</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
-    <meta content="Coderthemes" name="author" />
+    <meta content="Intranet Aiapaec" name="description" />
+    <meta content="TI Aiapaec" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="recursos/img/letra_color.png">
 
@@ -82,7 +82,7 @@
 
                     <!-- Footer-->
                     <footer class="footer footer-alt">
-                        <p class="text-muted">No tienes una cuenta? <a href="http://localhost/registro-aiapaec/" class="text-muted ms-1"><b>Registrate </b></a>y forma parte de la familia Aiapaec</p>
+                        <p class="text-muted">No tienes una cuenta? <a href="https://www.academiaaiapaec.edu.pe/registro-aiapaec/" class="text-muted ms-1"><b>Registrate </b></a>y forma parte de la familia Aiapaec</p>
                     </footer>
 
                 </div> <!-- end .card-body -->
