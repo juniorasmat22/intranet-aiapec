@@ -49,11 +49,7 @@ class PagoControlador extends Controlador
         $respuesta=$this->modelo->get_pago($this->entidad);
         $this->respuesta($respuesta);
     }
-	public function editarEstado()  {
-		$this->entidad->setMetodoPost();
-        $respuesta=$this->modelo->editar_estado($this->entidad);
-        $this->respuesta($respuesta);
-	}
+
 
 	public function editarRecibo()  {
 		$archivo =file_get_contents($_FILES["reciboPago"]["tmp_name"]);
@@ -61,5 +57,18 @@ class PagoControlador extends Controlador
 		$this->entidad->reciboPago=$archivo;
         $respuesta=$this->modelo->editar_recibo($this->entidad);
         $this->respuesta($respuesta);
+	}
+	public function recibo()  {
+		$this->entidad->setMetodoGet();
+        $respuesta=$this->modelo->get_pago($this->entidad);
+		$estudiante= new EstudianteControlador();
+		$estudiante->entidad->idEstudiante=$respuesta->resultado->idEstudiante;
+		
+		$mi_estudiante=$estudiante->modelo->getEstudiante($estudiante->entidad);
+		$detalle= new DetallepagoControlador();
+		$detalle->entidad->idPago=$respuesta->resultado->idPago;
+		$mi_detalle=$detalle->modelo->get_detalle_pago($detalle->entidad);
+		
+		require_once  'vistas/pagos/ticket.php';
 	}
 }

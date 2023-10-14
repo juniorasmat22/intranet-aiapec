@@ -54,7 +54,7 @@ $(document).ready( function () {
           $("#formCrear").trigger("reset");
           // $("#crearModal").modal('hide');
           alert('Registro actualizado correctamente');
-          window.location.replace("http://localhost/intranet-aiapaec/");
+          window.location.replace("https://www.academiaaiapaec.edu.pe/intranet-aiapaec/");
         }
         else
           alert(r.mensaje);

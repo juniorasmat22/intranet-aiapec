@@ -42,6 +42,10 @@
                                     <h6 class="font-14">Fecha de Registro :</h6>
                                     <p class="text-sm lh-150"><?php echo date("d/m/Y h:i:s A", strtotime($respuesta->resultado->fechaPago));  ?> </p>
                                 </div>
+                                <div class="col-md-8">
+                                    <h6 class="font-14">Cajero(a) :</h6>
+                                    <p class="text-sm lh-150"><?php echo $respuesta->resultado->cajeroPago;  ?> </p>
+                                </div>
                                 <div class="col-md-4">
                                     <h6 class="font-14">Estado:</h6>
                                     <p class="text-sm lh-150"> <?php
@@ -59,7 +63,7 @@
                                                                         # code...
                                                                         break;
                                                                 }
-                                                                ?> </p>
+                                                                ?> <a href="?c=pago&a=get_estado&idPago=<?php echo $respuesta->resultado->idPago ?>" class="text-muted editar"><i class="mdi mdi-square-edit-outline ms-2"></i></a></p>
                                 </div>
                                 <div class="col-md-4">
                                     <h6 class="font-14">Monto Total Pagado :</h6>
@@ -70,26 +74,31 @@
                     </div> <!-- end col -->
                     <div class="col-lg-5">
                         <!-- Product image -->
-                        <a href="data:image/jpg;base64,<?php echo base64_encode($respuesta->resultado->reciboPago); ?>" class="text-center d-block mb-4">
-                            <img src="data:image/jpg;base64,<?php echo base64_encode($respuesta->resultado->reciboPago); ?>" class="img-fluid" style="max-width: 280px;" alt="Product-img">
+                        <a href="data:image/jpeg;base64,<?php echo base64_encode($respuesta->resultado->reciboPago); ?>" class="text-center d-block mb-4">
+                            <img src="data:image/jpeg;base64,<?php echo base64_encode($respuesta->resultado->reciboPago); ?>" class="img-fluid" style="max-width: 280px;" alt="Product-img">
                         </a>
-                        <?php if ($respuesta->resultado->estadoPago!=2) {?>
-                            <form id="formActualizarRecibo" method="POST" action="?c=pago&a=editarRecibo" enctype="multipart/form-data">
+                        <form id="formActualizarRecibo" method="POST" action="?c=pago&a=editarRecibo" enctype="multipart/form-data">
                             <input type="hidden" name="idPago" id="idPago" value="<?php echo $respuesta->resultado->idPago; ?>">
                             <div class="row g-2">
                                 <div class="col-sm">
                                     <label class="form-label">Actualizar recibo</label>
-                                    <input class="form-control" type="file" id="reciboPago" name="reciboPago" accept=".jpg, .jpeg" required>
+                                    <input class="form-control" type="file" id="reciboPago" name="reciboPago" accept=".jpg, .jpeg, .png" required>
                                 </div>
                             </div>
                             <br>
                             <button type="submit" class="btn btn-success"><i class="mdi mdi-rocket me-1"></i> <span>Actualizar recibo</span> </button>
                         </form>
-                        <?php }?>
-                        
                     </div> <!-- end col -->
                 </div> <!-- end row-->
                 <h6 class="font-14">Detalle del pago:</h6>
+                <div class="row mb-2">
+                    <?php if ($respuesta->resultado->estadoPago == 2) { ?>
+                        <div class="col-sm-4">
+                            <a href="?c=pago&a=recibo&idPago=<?php echo $respuesta->resultado->idPago ?>" target="_blank" class="btn btn-guinda mb-2"><i class="mdi mdi-file-pdf-box me-2"></i>Recibo</a>
+                        </div>
+                    <?php  } ?>
+
+                </div>
                 <div class="table-responsive mt-4">
                     <table class="table table-bordered table-centered mb-0">
                         <thead class="table-light">
@@ -129,3 +138,12 @@
     </div> <!-- end col-->
 </div>
 
+
+
+
+<script type="text/javascript">
+    function funcionOpcionEditar(pago) {
+        $('#formEditar input[name="idPago"]').val(pago.idPago);
+        $('#formEditar select[name="estadoPago"]').val(pago.estadoPago);
+    }
+</script>
