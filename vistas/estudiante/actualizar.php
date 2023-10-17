@@ -170,6 +170,7 @@ $lista_niveles = $nivel->modelo->listar();
                                     <option value="Ordinario">Ordinario</option>
                                     <option value="Cepunt">Cepunt</option>
                                     <option value="Excelencia">Excelencia</option>
+                                    <option value="5to Secundaria">5to Secundaria</option>
                                 </select>
                             </div>
                         </div>
@@ -687,7 +688,7 @@ $lista_niveles = $nivel->modelo->listar();
                     </div>
 
                     <div class="text-end">
-                        <button type="submit" class="btn btn-success mt-2"><i class="mdi mdi-content-save"></i> Save</button>
+                        <button type="submit" class="btn btn-success mt-2"><i class="mdi mdi-content-save"></i>Actualizar</button>
                     </div>
                 </form>
 

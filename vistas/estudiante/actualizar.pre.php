@@ -14,7 +14,7 @@ $lista_areas = $area->modelo->listar();
             <div class="position-relative mb-3">
                 <label for="modalidadEstudiante" class="form-label">Modalidad de Postulación</label>
                 <select id="modalidadEstudiante" name="modalidadEstudiante" required class="form-select">
-                    <option selected disabled>Modalidad de Postulación</option>
+                    <option selected disabled value="">Modalidad de Postulación</option>
                     <option>Ordinario</option>
                     <option>Cepunt</option>
                     <option>Excelencia</option>

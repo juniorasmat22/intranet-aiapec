@@ -75,19 +75,19 @@ use controladores\NivelControlador;
                                     <div class="mb-3">
                                         <label for="apellidoEstudiante" class="form-label">Apellidos</label>
 
-                                        <input maxlength="25" data-toggle="maxlength" type="text" class="form-control" required value="<?php echo $estudiante->resultado->apellidoEstudiante; ?>" id="apellidoEstudiante" name="apellidoEstudiante" placeholder="Ingrese sus Apellidos">
+                                        <input maxlength="45" data-toggle="maxlength" type="text" class="form-control" required value="<?php echo $estudiante->resultado->apellidoEstudiante; ?>" id="apellidoEstudiante" name="apellidoEstudiante" placeholder="Ingrese sus Apellidos">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label for="nombresEstudiante" class="form-label">Nombres</label>
-                                        <input type="text" maxlength="25" data-toggle="maxlength" class="form-control" required name="nombresEstudiante" id="nombresEstudiante" value="<?php echo $estudiante->resultado->nombresEstudiante; ?>" placeholder="Ingrese sus Nombres">
+                                        <input type="text" maxlength="45" data-toggle="maxlength" class="form-control" required name="nombresEstudiante" id="nombresEstudiante" value="<?php echo $estudiante->resultado->nombresEstudiante; ?>" placeholder="Ingrese sus Nombres">
                                     </div>
                                 </div> <!-- end col -->
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label for="correoEstudiante" class="form-label">Correo</label>
-                                        <input type="text" maxlength="30" data-toggle="maxlength" class="form-control" required id="correoEstudiante" name="correoEstudiante" value="<?php echo $estudiante->resultado->correoEstudiante; ?>" placeholder="Ingrese su número de celular">
+                                        <input type="text" maxlength="45" data-toggle="maxlength" class="form-control" required id="correoEstudiante" name="correoEstudiante" value="<?php echo $estudiante->resultado->correoEstudiante; ?>" placeholder="Ingrese su número de celular">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -120,7 +120,7 @@ use controladores\NivelControlador;
                                         <select class="form-control select2" name="situacionEstudiante" id="situacionEstudiante" required data-toggle="select2">
                                             <option value="" selected disabled>Selecione una opción</option>
                                             <option value="Estudiante Escolar" <?php if ($estudiante->resultado->situacionEstudiante == 'Estudiante Escolar') echo 'selected'; ?>>Estudiante Escolar</option>
-                                            <option value="Estudiante Preuniversitario" <?php if ($estudiante->resultado->situacionEstudiante == 'Estudiante Preuniversitario') echo 'selected'; ?>>Estudiante Preuniversitario</option>
+                                            <option value="Egresado de Secundaria" <?php if ($estudiante->resultado->situacionEstudiante == 'Egresado de Secundaria') echo 'selected'; ?>>Egresado de Secundaria</option>
                                         </select>
                                         <div class="valid-tooltip">
                                             Genial!
@@ -201,7 +201,7 @@ use controladores\NivelControlador;
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label for="correoApoderadoEstudiante" class="form-label">Correo</label>
-                                        <input type="email" maxlength="30" data-toggle="maxlength" required class="form-control" name="correoApoderadoEstudiante" id="correoApoderadoEstudiante" placeholder="Ingrese su correo electrónico" value="<?php echo $estudiante->resultado->correoApoderadoEstudiante; ?>">
+                                        <input type="email" maxlength="45" data-toggle="maxlength" required class="form-control" name="correoApoderadoEstudiante" id="correoApoderadoEstudiante" placeholder="Ingrese su correo electrónico" value="<?php echo $estudiante->resultado->correoApoderadoEstudiante; ?>">
                                     </div>
                                 </div>
                             </div> <!-- end row -->

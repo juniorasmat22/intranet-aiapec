@@ -150,5 +150,6 @@ class Estudiante extends Entidad
 		$this->correoCorporativo			= $metodo('correoCorporativo');
 		$this->passworCorporativo			= $metodo('passworCorporativo');
 		$this->fotoEstudiante			= $metodo('fotoEstudiante');
+		$this->datosUpdated			= $metodo('datosUpdated');
 	}
 }
