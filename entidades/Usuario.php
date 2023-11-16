@@ -14,6 +14,7 @@ class Usuario extends Entidad
 	public $nombresEstudiante;
 	public $datosUpdated;
 	public $idEstudiante;
+	public $idRol;
 
 	public function setConsulta($filaConsulta)
 	{
@@ -25,6 +26,7 @@ class Usuario extends Entidad
 		$this->nombresEstudiante = $this->obtenerColumna($filaConsulta, 'nombres_estudiante');
 		$this->datosUpdated = $this->obtenerColumna($filaConsulta, 'datos_update');
 		$this->idEstudiante = $this->obtenerColumna($filaConsulta, 'id_estudiante');
+		$this->idRol = $this->obtenerColumna($filaConsulta, 'id_rol');
 	}
 	public function bindValues($statement)
 	{
@@ -55,6 +57,7 @@ class Usuario extends Entidad
 		$_SESSION['name'] = $this->nombresEstudiante;
 		$_SESSION['update'] = $this->datosUpdated;
 		$_SESSION['idEstudiante'] = $this->idEstudiante;
+		$_SESSION['idRol'] = $this->idRol;
 
 	}
 	

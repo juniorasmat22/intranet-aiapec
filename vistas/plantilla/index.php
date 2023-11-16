@@ -9,14 +9,13 @@
   <meta content="TI AIAPAEC" name="author">
   <!-- App favicon -->
   <link rel="shortcut icon" href="recursos/img/letra_color.png">
-  <?php   
+  <?php
   $var = isset($_GET['c']) ? $_GET['c'] : '';
   $var_action = isset($_GET['a']) ? $_GET['a'] : '';
-  if( $var=='Matriculaseminario' || $var=='matricula' || $var=='registroconcurso'){
+  if ($var == 'Matriculaseminario' || $var == 'matricula' || $var == 'registroconcurso') {
     echo '<link href="recursos/assets/css/vendor/dataTables.bootstrap5.css" rel="stylesheet" type="text/css">';
     echo '<link href="recursos/assets/css/vendor/responsive.bootstrap5.css" rel="stylesheet" type="text/css">';
     echo '<link href="recursos/assets/css/vendor/buttons.bootstrap5.css" rel="stylesheet" type="text/css">';
-  
   }
   ?>
   <!-- para el dashboard -->
@@ -30,8 +29,8 @@
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.18/dist/sweetalert2.all.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.18/dist/sweetalert2.min.css" rel="stylesheet">
-  
-  ?>
+  <script type="text/javascript" src="recursos/js/psicologia/pdfobject.min.js"></script>
+
 </head>
 
 <body class="loading" data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": true}'>
@@ -65,144 +64,176 @@
         <!--- Sidemenu -->
         <ul class="side-nav">
 
-          <?php if ($_SESSION['update'] == 0) { ?>
-            <li class="side-nav-title side-nav-item">Bienvenido</li>
 
-            <li class="side-nav-item">
-              <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
-                <i class="uil-home-alt"></i>
-                <span class="badge bg-success float-end">1</span>
-                <span> Mi perfil </span>
-              </a>
-              <div class="collapse" id="sidebarDashboards">
-                <ul class="side-nav-second-level">
-                  <li>
-                    <a href="?c=estudiante&a=updated">Actualizar datos</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-          <?php } else { ?>
+          <?php if ($_SESSION['idRol'] == '7') { ?>
             <li class="side-nav-title side-nav-item">Opciones</li>
             <li class="side-nav-item">
               <a data-bs-toggle="collapse" href="#sidebarProgramas" aria-expanded="false" aria-controls="sidebarProgramas" class="side-nav-link">
                 <i class="uil-tv-retro"></i>
                 <!-- <span class="badge bg-success float-end">1</span> -->
-                
-                <span> Programas </span>
+
+                <span> Concursos </span>
                 <span class="menu-arrow"></span>
 
               </a>
               <div class="collapse" id="sidebarProgramas">
                 <ul class="side-nav-second-level">
                   <li>
-                    <a href="?c=programasacademia&a=escolares">Escolares</a>
+                    <a href="?c=programasacademia&a=escolares">Mis Participantes</a>
                   </li>
-                  <li>
+                  <!-- <li>
                     <a href="?c=programasacademia&a=preuniversitarios">Preuniversitarios</a>
-                  </li>
-                 
-                </ul>
-              </div>
-            </li>
+                  </li> -->
 
-            <li class="side-nav-item">
-              <a href="?c=matricula&a=matriculas" class="side-nav-link">
-                <i class="uil-graduation-hat"></i>
-                <span> Matrícula </span>
-              </a>
-            </li>
-            <li class="side-nav-item">
-              <a href="?c=cuota" class="side-nav-link">
-                <i class="uil-atm-card"></i>
-                <span> Pagos </span>
-              </a>
-            </li>
-            
-            <li class="side-nav-item">
-              <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
-                <i class="uil-podium"></i>
-                <!-- <span class="badge bg-success float-end">1</span> -->
-                <span> Seminarios </span>
-                <span class="menu-arrow"></span>
-              </a>
-              <div class="collapse" id="sidebarDashboards">
-                <ul class="side-nav-second-level">
-                  <li>
-                    <a href="?c=seminario">Ver Todos</a>
-                  </li>
-                  <li>
-                    <a href="?c=Matriculaseminario&a=misSeminarios">Mis Seminarios</a>
-                  </li>
-                 
                 </ul>
               </div>
             </li>
+          <?php } else { ?>
+            <?php if ($_SESSION['update'] == 0) { ?>
+              <li class="side-nav-title side-nav-item">Bienvenido </li>
 
-            <li class="side-nav-item">
-              <a data-bs-toggle="collapse" href="#sidebarConcursos" aria-expanded="false" aria-controls="sidebarConcursos" class="side-nav-link">
-                <i class="uil-medal"></i>
-                <!-- <span class="badge bg-success float-end">1</span> -->
-                <span> Concursos </span>
-                <span class="menu-arrow"></span>
-              </a>
-              <div class="collapse" id="sidebarConcursos">
-                <ul class="side-nav-second-level">
-                  <li>
-                    <a href="?c=concurso">Ver Todos</a>
-                  </li>
-                  <li>
-                    <a href="?c=registroconcurso&a=misConcursos">Mis concursos</a>
-                  </li>
-                 
-                </ul>
-              </div>
-            </li>
+              <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+                  <i class="uil-home-alt"></i>
+                  <span class="badge bg-success float-end">1</span>
+                  <span> Mi perfil </span>
+                </a>
+                <div class="collapse" id="sidebarDashboards">
+                  <ul class="side-nav-second-level">
+                    <li>
+                      <a href="?c=estudiante&a=updated">Actualizar datos</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            <?php } else { ?>
+              <li class="side-nav-title side-nav-item">Opciones</li>
+              <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarProgramas" aria-expanded="false" aria-controls="sidebarProgramas" class="side-nav-link">
+                  <i class="uil-tv-retro"></i>
+                  <!-- <span class="badge bg-success float-end">1</span> -->
 
-            <li class="side-nav-item">
-              <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
-                <i class="uil-notes"></i>
-                <span> Notas </span>
-                <span class="menu-arrow"></span>
-              </a>
-              <div class="collapse" id="sidebarEcommerce">
-                <ul class="side-nav-second-level">
-                  <li>
-                    <a href="apps-ecommerce-products.html">Simulacros</a>
-                  </li>
-                  <li>
-                    <a href="apps-ecommerce-products-details.html">Semanales</a>
-                  </li>
-                  <li>
-                    <a href="apps-ecommerce-orders.html">Diarios</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="side-nav-item">
-              <a href="apps-social-feed.html" class="side-nav-link">
-                <i class="uil-graph-bar"></i>
-                <span> Asistencia </span>
-              </a>
-            </li>
-            <li class="side-nav-item">
-              <a data-bs-toggle="collapse" href="#sidebarEmail" aria-expanded="false" aria-controls="sidebarEmail" class="side-nav-link">
-                <i class="uil-books"></i>
-                <span> Biblioteca </span>
-                <span class="menu-arrow"></span>
-              </a>
-              <div class="collapse" id="sidebarEmail">
-                <ul class="side-nav-second-level">
-                  <li>
-                    <a href="apps-email-inbox.html">Cursos</a>
-                  </li>
-                  <li>
-                    <a href="apps-email-read.html">Libros</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
+                  <span> Programas </span>
+                  <span class="menu-arrow"></span>
 
+                </a>
+                <div class="collapse" id="sidebarProgramas">
+                  <ul class="side-nav-second-level">
+                    <li>
+                      <a href="?c=programasacademia&a=escolares">Escolares</a>
+                    </li>
+                    <li>
+                      <a href="?c=programasacademia&a=preuniversitarios">Preuniversitarios</a>
+                    </li>
+
+                  </ul>
+                </div>
+              </li>
+
+              <li class="side-nav-item">
+                <a href="?c=matricula&a=matriculas" class="side-nav-link">
+                  <i class="uil-graduation-hat"></i>
+                  <span> Matrícula </span>
+                </a>
+              </li>
+              <li class="side-nav-item">
+                <a href="?c=cuota" class="side-nav-link">
+                  <i class="uil-atm-card"></i>
+                  <span> Pagos </span>
+                </a>
+              </li>
+
+              <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+                  <i class="uil-podium"></i>
+                  <!-- <span class="badge bg-success float-end">1</span> -->
+                  <span> Seminarios </span>
+                  <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="sidebarDashboards">
+                  <ul class="side-nav-second-level">
+                    <li>
+                      <a href="?c=seminario">Ver Todos</a>
+                    </li>
+                    <li>
+                      <a href="?c=Matriculaseminario&a=misSeminarios">Mis Seminarios</a>
+                    </li>
+
+                  </ul>
+                </div>
+              </li>
+
+              <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarConcursos" aria-expanded="false" aria-controls="sidebarConcursos" class="side-nav-link">
+                  <i class="uil-medal"></i>
+                  <!-- <span class="badge bg-success float-end">1</span> -->
+                  <span> Concursos </span>
+                  <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="sidebarConcursos">
+                  <ul class="side-nav-second-level">
+                    <li>
+                      <a href="?c=concurso">Ver Todos</a>
+                    </li>
+                    <li>
+                      <a href="?c=registroconcurso&a=misConcursos">Mis concursos</a>
+                    </li>
+
+                  </ul>
+                </div>
+              </li>
+
+              <!-- <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
+                  <i class="uil-notes"></i>
+                  <span> Notas </span>
+                  <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="sidebarEcommerce">
+                  <ul class="side-nav-second-level">
+                    <li>
+                      <a href="apps-ecommerce-products.html">Simulacros</a>
+                    </li>
+                    <li>
+                      <a href="apps-ecommerce-products-details.html">Semanales</a>
+                    </li>
+                    <li>
+                      <a href="apps-ecommerce-orders.html">Diarios</a>
+                    </li>
+                  </ul>
+                </div>
+              </li> -->
+              <li class="side-nav-item">
+                <a href="apps-social-feed.html" class="side-nav-link">
+                  <i class="uil-graph-bar"></i>
+                  <span> Asistencia </span>
+                </a>
+              </li>
+              <li class="side-nav-item">
+                <a href="?c=psicologia&a=index" class="side-nav-link">
+                  <i class="mdi mdi-brain"></i>
+                  <span> Psicología </span>
+                </a>
+              </li>
+              
+              <!-- <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarEmail" aria-expanded="false" aria-controls="sidebarEmail" class="side-nav-link">
+                  <i class="uil-books"></i>
+                  <span> Biblioteca </span>
+                  <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="sidebarEmail">
+                  <ul class="side-nav-second-level">
+                    <li>
+                      <a href="apps-email-inbox.html">Cursos</a>
+                    </li>
+                    <li>
+                      <a href="apps-email-read.html">Libros</a>
+                    </li>
+                  </ul>
+                </div>
+              </li> -->
+            <?php  } ?>
           <?php  }
           ?>
 
@@ -282,7 +313,7 @@
           <button class="button-menu-mobile open-left">
             <i class="mdi mdi-menu"></i>
           </button>
-          
+
         </div>
         <!-- end Topbar -->
 
@@ -329,7 +360,7 @@
   <!-- END wrapper -->
 
 
- 
+
 
   <div class="rightbar-overlay"></div>
   <!-- /End-bar -->
@@ -345,36 +376,37 @@
 
   <?php
 
-if($var=='estudiante'){
-  echo '<script src="recursos/js/updated/updated.js"></script>';
-  echo '  <script src="recursos/js/ajax.js"></script>';
-}
-if($var=='seminario'){
-  echo '<script src="recursos/js/simulacro/registro.js"></script>';
-  
-}
-if ($var=='Matriculaseminario' || $var=='matricula' || $var=='registroconcurso') {
-  echo  '<script src="recursos/assets/js/vendor/jquery.dataTables.min.js"></script>';
-  echo '<script src="recursos/assets/js/vendor/dataTables.bootstrap5.js"></script>';
-  echo '<script  src="recursos/assets/js/vendor/dataTables.responsive.min.js"></script>';
-  echo '<script src="recursos/assets/js/vendor/responsive.bootstrap5.min.js"></script>';
-  echo '<script src="recursos/assets/js/pages/demo.datatable-init.js"></script>';
-}
-if ($var=='matricula') {
-  echo '<script src="recursos/js/matricula/ajax.js"></script>';
- echo '<script src="recursos/js/matricula/matricula.js"></script>';
- 
-}
-if ($var=='cuota') {
-  echo '<script src="recursos/js/pagos/registro_pago.js"></script>';
-}
-if ($var=='registroconcurso') {
-  echo '<script src="recursos/js/simulacro/editar.js"></script>';
-}
-if ($var=='pago') {
-  echo '<script src="recursos/js/pagos/update_pago.js"></script>';
-}
-?>
+  if ($var == 'estudiante') {
+    echo '<script src="recursos/js/updated/updated.js"></script>';
+    echo '  <script src="recursos/js/ajax.js"></script>';
+  }
+  if ($var == 'seminario') {
+    echo '<script src="recursos/js/simulacro/registro.js"></script>';
+  }
+  if ($var == 'Matriculaseminario' || $var == 'matricula' || $var == 'registroconcurso') {
+    echo  '<script src="recursos/assets/js/vendor/jquery.dataTables.min.js"></script>';
+    echo '<script src="recursos/assets/js/vendor/dataTables.bootstrap5.js"></script>';
+    echo '<script  src="recursos/assets/js/vendor/dataTables.responsive.min.js"></script>';
+    echo '<script src="recursos/assets/js/vendor/responsive.bootstrap5.min.js"></script>';
+    echo '<script src="recursos/assets/js/pages/demo.datatable-init.js"></script>';
+  }
+  if ($var == 'matricula') {
+    echo '<script src="recursos/js/matricula/ajax.js"></script>';
+    echo '<script src="recursos/js/matricula/matricula.js"></script>';
+  }
+  if ($var == 'cuota') {
+    echo '<script src="recursos/js/pagos/registro_pago.js"></script>';
+  }
+  if ($var == 'registroconcurso') {
+    echo '<script src="recursos/js/simulacro/editar.js"></script>';
+  }
+  if ($var == 'pago') {
+    echo '<script src="recursos/js/pagos/update_pago.js"></script>';
+  }
+  if ($var == 'psicologia') {
+    echo '<script src="recursos/js/psicologia/pdf.js"></script>';
+  }
+  ?>
 
 </body>
 

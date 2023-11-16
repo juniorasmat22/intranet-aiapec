@@ -45,7 +45,7 @@ use entidades\Semestre;
             <td><?php echo $fila->idMatricula;?></td>
             <td><?php echo $semestre_matricula->resultado->nombreSemestre;?></td>
             <td><?php echo ($nivel_matricula->respuesta) ? $mi_programa->resultado->nombreProgramasAcademia.'-'.$nivel_matricula->resultado->descripcionNivelp : $mi_programa->resultado->nombreProgramasAcademia ;?></td>
-            <td><?php echo $sede_matricula->resultado->nombreSede;?></td>
+            <td><?php echo ($sede_matricula->respuesta) ? $sede_matricula->resultado->nombreSede: 'No Aplica';?></td>
             <td><?php echo "S/.  " . number_format($fila->costoOriginalMatricula, 2);  ?></td>
             <td><?php echo $fila->cuotasMatricula;?></td>
             <td><span class="badge <?php echo  ($fila->estadoMatricula==0) ? "bg-warning" : "bg-success" ;?> "><?php echo  ($fila->estadoMatricula==0) ? "Pendiente" : "Aprobada" ;?></span></td>
