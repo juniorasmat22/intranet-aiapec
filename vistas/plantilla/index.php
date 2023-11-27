@@ -204,7 +204,7 @@
                 </div>
               </li> -->
               <li class="side-nav-item">
-                <a href="apps-social-feed.html" class="side-nav-link">
+                <a href="?c=asistencia" class="side-nav-link">
                   <i class="uil-graph-bar"></i>
                   <span> Asistencia </span>
                 </a>
@@ -405,6 +405,9 @@
   }
   if ($var == 'psicologia') {
     echo '<script src="recursos/js/psicologia/pdf.js"></script>';
+  }
+  if ($var == 'asistencia') {
+    echo '<script src="recursos/assets/js/vendor/apexcharts.min.js"></script>';
   }
   ?>
 
