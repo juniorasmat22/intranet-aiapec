@@ -74,8 +74,8 @@
                     </div> <!-- end col -->
                     <div class="col-lg-5">
                         <!-- Product image -->
-                        <a href="data:image/jpeg;base64,<?php echo base64_encode($respuesta->resultado->reciboPago); ?>" class="text-center d-block mb-4">
-                            <img src="data:image/jpeg;base64,<?php echo base64_encode($respuesta->resultado->reciboPago); ?>" class="img-fluid" style="max-width: 280px;" alt="Product-img">
+                        <a href="http://localhost/intranet-administrativa}/<?php echo ($respuesta->resultado->reciboPago); ?>" class="text-center d-block mb-4">
+                            <img src="http://localhost/intranet-administrativa/<?php echo ($respuesta->resultado->reciboPago); ?>" class="img-fluid" style="max-width: 280px;" alt="Product-img">
                         </a>
                         <form id="formActualizarRecibo" method="POST" action="?c=pago&a=editarRecibo" enctype="multipart/form-data">
                             <input type="hidden" name="idPago" id="idPago" value="<?php echo $respuesta->resultado->idPago; ?>">

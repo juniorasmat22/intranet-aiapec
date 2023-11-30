@@ -56,7 +56,7 @@ class ReporteAsistencia extends Entidad
 	}
 
 	public function set($metodo){
-		$this->fechaInicio	            = $metodo('fechaIncio');
+		$this->fechaInicio	            = $metodo('fechaInicio');
 		$this->fechaFin                 = $metodo('fechaFin');
 		$this->idProgramaAcademia		= $metodo('idProgramaAcademia');
 		$this->programaNivel			= $metodo('programaNivel');

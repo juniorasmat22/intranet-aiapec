@@ -1,6 +1,6 @@
 
 <!-- method="get" action="index.php" -->
-<form class="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between" method="post" id="formBuscar">
+<form class="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between" method="get" id="formBuscar">
     <input type="hidden" name="c" value="asistencia">
     <input type="hidden" name="a" value="index">
 

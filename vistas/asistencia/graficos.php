@@ -27,7 +27,7 @@
                             <tr>
                                 <td>Tardanza Justificada</td>
                                 <td>TJ</td>
-                                <td style="text-align: center;"><?php echo $mi_reporte->resultado->cantidad_asistencias; ?></td>
+                                <td style="text-align: center;"><?php echo $mi_reporte->resultado->cantidad_tj; ?></td>
                             </tr>
                             <tr>
                                 <td>Falta</td>
@@ -67,13 +67,18 @@
             chart: {
                 width: 380,
                 type: 'pie',
+                animations: {
+                enabled: true,
+                easing: 'easeinout', // Puedes cambiar el tipo de animación
+                speed: 800, // Puedes ajustar la velocidad de la animación
+            },
             },
             labels: ['Asistencias', 'Faltas', 'Tardanzas', 'Falta Justificada','Tardanza Justificada'],
             responsive: [{
                 breakpoint: 480,
                 options: {
                     chart: {
-                        width: 200
+                        width: '100%',
                     },
                     legend: {
                         position: 'bottom'
