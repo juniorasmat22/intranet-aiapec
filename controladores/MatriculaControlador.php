@@ -20,8 +20,9 @@ class MatriculaControlador extends Controlador
 	}
 
 	public function matriculas() {
-		$this->entidad->idEstudiante=$_SESSION['idEstudiante'];
+		$this->entidad->idEstudiante=(int)$_SESSION['idEstudiante'];
 		$mis_matriculas=$this->modelo->get_matriculas_por_estudiante($this->entidad);
+		
 		$vista = 'vistas/matricula/index.php';
 		require 'vistas/plantilla/index.php';
 	}

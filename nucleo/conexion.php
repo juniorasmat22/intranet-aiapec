@@ -9,15 +9,11 @@ class Conexion
 {
 	public static function getConexion()
 	{
-		// $servidor = "127.0.0.1";
-		// $db = "db_academia_aiapaec";
-		// $usuario = "root";
-		// $clave = "";
+		$servidor = "127.0.0.1";
+		$db = "db_academia_aiapaec";
+		$usuario = "root";
+		$clave = "";
 
-		$servidor="academiaaiapaec.edu.pe";
-			$db="ewgcgdaj_prueba_aiapaec";
-			$usuario="ewgcgdaj_academia_aiapaec";
-			$clave="Wz6=x.{;kR?S";
 		
 		// $servidor = "academiaaiapaec.edu.pe";
 		// $db = "ewgcgdaj_db_academia_aiapaec";

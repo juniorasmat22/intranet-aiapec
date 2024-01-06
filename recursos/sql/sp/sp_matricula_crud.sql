@@ -75,7 +75,6 @@ BEGIN
 	if opcion=5 then
 		select * from tbl_matricula where id_matricula=idMatricula;
   end if;
-
       -- get matricula por programa , sede y nivel
 	if opcion=6 then
 		select * from tbl_matricula  where id_programas_academia=idProgramaAcademia;

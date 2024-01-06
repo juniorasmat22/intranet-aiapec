@@ -142,6 +142,21 @@
                   <span> Pagos </span>
                 </a>
               </li>
+              <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#acedemicoDashboards" aria-expanded="false" aria-controls="acedemicoDashboards" class="side-nav-link">
+                  <i class="uil-graduation-hat"></i>
+                  <!-- <span class="badge bg-success float-end">1</span> -->
+                  <span> Académico </span>
+                  <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="acedemicoDashboards">
+                  <ul class="side-nav-second-level">
+                    <li>
+                      <a href="?c=aula">Solucionarios</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
 
               <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">

@@ -20,7 +20,6 @@
     namespace controladores;
 
 use entidades\Semestre;
-
         if ($mis_matriculas->respuesta) {
             $filas = $mis_matriculas->resultado;
             foreach ($filas as $fila) {
