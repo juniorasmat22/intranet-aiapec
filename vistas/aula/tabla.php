@@ -5,8 +5,8 @@
             <?php
 
             use controladores\AulaControlador;
-use controladores\EvaluacionControlador;
-use controladores\NivelpControlador;
+            use controladores\EvaluacionControlador;
+            use controladores\NivelpControlador;
             use controladores\ProgramasacademiaControlador;
             use controladores\SedeControlador;
 
@@ -33,9 +33,10 @@ use controladores\NivelpControlador;
                     <div class="mt-2">
                         <h5 class="m-0 pb-2">
                             <a class="text-dark" data-bs-toggle="collapse" href="#todayTasks<?php echo $fila->idMatricula; ?>" role="button" aria-expanded="false" aria-controls="todayTasks">
-                                <i class='uil uil-angle-down font-18'></i><?php echo ($nivel_matricula->respuesta) ? $mi_programa->resultado->nombreProgramasAcademia . '-' . $nivel_matricula->resultado->descripcionNivelp : $mi_programa->resultado->nombreProgramasAcademia; ?> <span class="text-muted"> (<?php echo $sede_matricula->respuesta ? $sede_matricula->resultado->nombreSede : ''; ?>)</span>
+                                <i class='uil uil-angle-down font-18'></i><?php echo ($nivel_matricula->respuesta) ? $mi_programa->resultado->nombreProgramasAcademia . '-' . $nivel_matricula->resultado->descripcionNivelp : $mi_programa->resultado->nombreProgramasAcademia.' '; ?> <span class="text-muted"> (<?php echo $sede_matricula->respuesta ? $sede_matricula->resultado->nombreSede : ''; ?>)</span>
                             </a>
                         </h5>
+                        <div class="collapse show" id="todayTasks<?php echo $fila->idMatricula; ?>">
                         <ul class="nav nav-pills bg-nav-pills nav-justified mb-3">
                             <?php if ($datos_aula->semanal == 1) { ?>
                                 <li class="nav-item">
@@ -62,15 +63,13 @@ use controladores\NivelpControlador;
                                 </li>
                             <?php } ?>
                         </ul>
-
-
                         <div class="tab-content">
-                            <?php if ($datos_aula->semanal == 1) { 
-                                $evaluacion= new EvaluacionControlador();
-                                $evaluacion->entidad->tipoEvaluacion=1;
-                                $evaluacion->entidad->idEvaluacion=1;
-                                
-                                ?>
+                            <?php if ($datos_aula->semanal == 1) {
+                                $evaluacion = new EvaluacionControlador();
+                                $evaluacion->entidad->tipoEvaluacion = 1;
+                                $evaluacion->entidad->idAula = $datos_aula->idAula;
+                                $mis_semanales = $evaluacion->modelo->listarEvaluacionesporTipo($evaluacion->entidad);
+                            ?>
                                 <div class="tab-pane active" id="home1">
                                     <div class="mt-3">
                                         <div class="table-responsive">
@@ -83,17 +82,41 @@ use controladores\NivelpControlador;
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <span class="ms-2 fw-semibold"><a href="javascript: void(0);" class="text-reset">App Design & Development</a></span>
-                                                        </td>
-                                                        <td>
-                                                            <p class="mb-0">Jan 03, 2020</p>
-                                                            <span class="font-12">by Andrew</span>
-                                                        </td>
-                                                        <td>128 MB</td>
-                                                        
-                                                    </tr>
+                                                    <?php
+                                                    if ($mis_semanales->respuesta) {
+                                                        $filas = $mis_semanales->resultado;
+                                                        foreach ($filas as $fila) { ?>
+                                                            <tr>
+                                                                <td>
+                                                                    <p class="mb-0"><?php echo  'Semanal N° ' . $fila->semanaEvaluacion; ?></p>
+                                                                </td>
+                                                                <td>
+                                                                    <p class="mb-0"><?php echo  date("d/m/Y", strtotime($fila->fechaEvaluacion)); ?></p>
+
+                                                                </td>
+                                                                <td>
+                                                                    <?php if (is_null($fila->rutaSolucionario)) { ?>
+                                                                        <div class="alert alert-warning" role="alert">
+                                                                            <i class="dripicons-warning me-2"></i> El solucionario <strong>esta pendiente</strong>
+                                                                        </div>
+                                                                    <?php  } else { ?>
+                                                                        <a href="<?php echo  'http://localhost/intranet-administrativa/' . $fila->rutaSolucionario; ?>" class="btn btn-link btn-lg text-muted" download>
+                                                                            <i class="dripicons-download"></i>
+                                                                        </a>
+                                                                    <?php } ?>
+
+                                                                </td>
+                                                            </tr>
+                                                        <?php
+                                                        }
+                                                    } else {
+                                                        ?>
+                                                        <div class="alert alert-warning" role="alert">
+                                                            <i class="dripicons-warning me-2"></i> No tiene <strong>Tiene hay aulas matrícula registrada</strong>
+                                                        </div>
+                                                    <?php
+                                                    }
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -112,6 +135,7 @@ use controladores\NivelpControlador;
                                     <p>solucionario diario</p>
                                 </div>
                             <?php } ?>
+                        </div>
                         </div>
                     </div> <!-- end .mt-2-->
                 <?php

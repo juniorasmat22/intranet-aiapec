@@ -16,6 +16,7 @@ class Evaluacion extends Entidad
     public $fechaRegistro;
     public $idArea;
     public $idAula;
+    public $rutaSolucionario;
 
     public function setConsulta($filaConsulta)
     {
@@ -29,6 +30,7 @@ class Evaluacion extends Entidad
         $this->fechaRegistro = $this->obtenerColumna($filaConsulta, 'fecha_registro');
         $this->idArea = $this->obtenerColumna($filaConsulta, 'id_area');
         $this->idAula = $this->obtenerColumna($filaConsulta, 'id_aula');
+        $this->rutaSolucionario=$this->obtenerColumna($filaConsulta, 'ruta_solucionario');
     }
 
     public function bindValues($statement)
