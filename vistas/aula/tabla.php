@@ -88,7 +88,7 @@
                                                         foreach ($filas as $fila) { ?>
                                                             <tr>
                                                                 <td>
-                                                                    <p class="mb-0"><?php echo  'Semanal N° ' . $fila->semanaEvaluacion; ?></p>
+                                                                    <p class="mb-0"><?php echo  'Semanal de'. $fila->descripcionEvaluacion .  'N° '.$fila->semanaEvaluacion; ?></p>
                                                                 </td>
                                                                 <td>
                                                                     <p class="mb-0"><?php echo  date("d/m/Y", strtotime($fila->fechaEvaluacion)); ?></p>
